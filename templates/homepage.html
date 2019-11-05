@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}Home Page{% endblock %}
+{% block heading1 %}Welcome to Tracer!{% endblock %}
+
+{% block content%}
+
+        <form action="/get-name" method="GET">
+
+        <input type="radio" name="user" value="user">Continue as a User 
+        <input type="radio" name="user" value="guest">Continue as a Guest
+            <input type="submit" value="Next">
+
+        </form>
+
+{% endblock %}

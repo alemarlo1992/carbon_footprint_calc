@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title%}Transportation Metrics{% endblock %}
+{% block heading1 %}Welcome to Tracer!{% endblock %}
+
+    <form action="/" method="GET">
+
+  <p>Please answer all questions to the best of your ability</p>
+    <div>
+        <h2>Personal Information</h2>
+        Enter zipcode: <input type='text' name='zipcode' id='zipcode'>
+        <br>
+        Number of individuals in your household?:
+        <input type='number' name='NumOfPeopleInHH' id='NumOfPeopleInHH'>
+        <br>
+        <h2>Transportation</h2><br>
+        Do you use public transportation on a daily basis? 
+        <input type="radio" name="transportation" value="publictrans">Yes
+        <input type="radio" name="transportation" value="publictrans">No
+        <br>
+
+        {% if {{ transportatio }} == yes %}
+
+            How many miles do you travel per week? 
+            <input type='number' name='milesperweek' id='milesperweek'>
+            <br>
+            {% else %}
+
+            Number of cars driven per week:
+            <input type='text' name='NumberOfCars' id='NumberOfCars'>
+            <br>
+            How many miles do you travel per week? (for each vehicle)
+            <br>
+            <input type='number' name='milesperweek' id='milesperweek'>
+            <input type='number' name='milesperweek' id='milesperweek'>
+            <input type='number' name='milesperweek' id='milesperweek'>
+            <input type='number' name='milesperweek' id='milesperweek'>
+            <input type='number' name='milesperweek' id='milesperweek'>
+
+        {% endif %}
+
+        <h2>Air Travel</h2><br>
+        Miles traveled this year? 
+        <br>
+        <input type='number' name='airmiles' id='airmiles'>
+        <br>
+        <br>
+        <input type='submit' value="Next">
+
+
+    </div>
+
+
+        </form>
+{% block content%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

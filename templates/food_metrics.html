@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title%}Food Metrics{% endblock %}
+{% block heading1 %}Food{% endblock %}
+
+<form action="/" method="GET">
+
+  <p>Please answer all questions to the best of your ability</p>
+    <div>
+
+        Enter the servings per day of meat, fish, and eggs: 
+        <input type='number' name='meat' id='meat'>
+        <br>
+        Enter the servings per day of grains and baked goods:
+        <input type='number' name='grains' id='grains'>
+        <br>
+        Enter the servings per day of dairy:
+        <input type='number' name='dairy' id='dairy'>
+        <br>
+        Enter the servings per day of fruits & vegetables:
+        <input type='number' name='fruits' id='fruits'>
+        <br><input type='submit' value="Crabon Emission Footprint Score">
+    </div>
+</form>
+
+
+{% endblock %}

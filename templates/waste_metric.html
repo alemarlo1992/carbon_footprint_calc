@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title%}Energy Metrics{% endblock %}
+{% block heading1 %}Energy{% endblock %}
+
+<form action="/" method="GET">
+
+  <p>Please answer all questions to the best of your ability</p>
+    <div>
+
+        Electricity amount per month: $<input type='number' name='electricity' id='electricity'>
+        <br>
+        Natural gas amount per month:
+        $<input type='number' name='naturalgas' id='naturalgas'>
+        <br>
+        Fuel oil amount per month:
+        $<input type='number' name='fuel' id='fuel'>
+        <br>
+        Propane amount per month:
+        $<input type='number' name='propane' id='propane'>
+        <br><input type='submit' value="Next">
+    </div>
+</form>
+
+
+{% endblock %}
