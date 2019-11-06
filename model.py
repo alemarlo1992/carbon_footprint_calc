@@ -21,14 +21,14 @@ class User(db.Model):
     fname = db.Column(db.String(20), nullable=False)
     lname = db.Column(db.String(20), nullable=False)
     zipcode = db.Column(db.Integer, nullable=False)
-    email = db.Column(db.String(70), nullable=False)
+    email = db.Column(db.String(70), nullable=False, unique=True)
     password = db.Column(db.String(20), nullable=False)
     profile_created_date = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         """Helpful representation when printed"""
 
-        return f"<User Info: user_id= {self.user_id} name= {self.fname} email={self.email}>"
+        return f"<User Info: user_id= {self.user_id}, name= {self.fname}, email={self.email}>"
 
 
 class PollutionMetrics(db.Model):
@@ -38,12 +38,22 @@ class PollutionMetrics(db.Model):
     __tablename__ = "pollution_metrics"
 
     metric_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    user_id = db.Column(db.String(20), db.ForeignKey('users.user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     trans_metric = db.Column(db.Integer, nullable=True)
     energy_metric = db.Column(db.Integer, nullable=True)
     waste_metric = db.Column(db.Integer, nullable=True)
     food_metric = db.Column(db.Integer, nullable=True)
     created_date = db.Column(db.DateTime, nullable=False)
+
+    def __repr__(self):
+        """Helpfull representation when printed"""
+
+        return f"""<Pollution metrics: 
+                    trans_metric = {self.trans_metric}, 
+                    energy_metric = {self.energy_metric}, 
+                    waste_metric = {self.waste_metric}, 
+                    food_metric = {self.food_metric}
+                """
 
     user = db.relationship("User",
                             backref=db.backref("pollution_metrics"))
