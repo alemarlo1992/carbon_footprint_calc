@@ -8,16 +8,16 @@ from RawData.zipcodeData import get_zipcodes
 # miles_per_week = float(input('Miles that you travel per week: '))
 # travel_miles_yr = float(input('How many miles did you air travel this year?: '))
 
-def vehicle_emissions(number_of_vehicles, miles_per_week):
+def vehicle_emissions(num_of_vehicles, miles_per_week):
     
     # 52.14 = weeks/yr, 21.6 = Average household fuel, 19.6 = lb of CO2 emitted/yr, 1.01 = lb of other gases /yr 
-    emission_lb = round((((number_of_vehicles * miles_per_week * 52.14) / 21.6) * 19.6 * 1.01), 2)
+    emission_lb = round((((num_of_vehicles * miles_per_week * 52.14) / 21.6) * 19.6 * 1.01), 2)
     # conversion from lb to ton 
     vehicle_emission_ton = round((emission_lb * 0.0005), 2)
 
     return vehicle_emission_ton
 
-# vehicle_emissions(number_of_vehicles, miles_per_week)
+# vehicle_emissions(num_of_vehicles, miles_per_week)
 
 
 def public_trans(miles_per_week):
@@ -30,9 +30,9 @@ def public_trans(miles_per_week):
 # public_trans(miles_per_week)
 
 
-def air_travel(travel_miles_yr):
+def air_travel(air_miles_yr):
 
-    travel_emission_ton = round((0.0005 * travel_miles_yr - 0.0022), 2)
+    travel_emission_ton = round((0.0005 * air_miles_yr - 0.0022), 2)
 
     return travel_emission_ton
 
@@ -102,7 +102,7 @@ def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
 
 # def total():
 
-    
+
 
 
 
