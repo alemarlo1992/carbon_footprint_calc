@@ -4,7 +4,6 @@ from RawData.zipcodeData import get_zipcodes
 
 
 """Transportation metric"""
-# print(get_zipcodes())
 # number_of_vehicles = float(input('Enter amount of vehicles your household owns: '))
 # miles_per_week = float(input('Miles that you travel per week: '))
 # travel_miles_yr = float(input('How many miles did you air travel this year?: '))
@@ -40,15 +39,18 @@ def air_travel(travel_miles_yr):
 # air_travel(travel_miles_yr)
 
 """Energy Metrics"""
-user_zipcode = input('Zipcode: ')
-natural_gas_amount = float(input('How much do you pay for Natural gas per month?: '))
-electricity_amount = float(input('How much do you pay for electrity per month?: '))
-fuel_oil_amount = float(input('How much do you pay for fuel per month?: '))
-propane_amount = float(input('How much do you pay for propane per month?: '))
+# zipcode = get_zipcodes()
+# # print(zipcode['92104'])
+# user_zipcode = input('Zipcode: ')
+# natural_gas_amount = float(input('How much do you pay for Natural gas per month?: '))
+# electricity_amount = float(input('How much do you pay for electrity per month?: '))
+# fuel_oil_amount = float(input('How much do you pay for fuel per month?: '))
+# propane_amount = float(input('How much do you pay for propane per month?: '))
 def energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount, propane_amount): 
 
-    region_co2 = zipcodes_co2[zipcode]
-    emission_factor = int(region_co2) / 1000
+    zipcode_dict = get_zipcodes() #make function from zipcodeData.py a variable to access values 
+    region_co2 = zipcode_dict[user_zipcode] #gets emissions by zipcode
+    emission_factor = int(region_co2) / 1000 #conversion factor per household
     # $10.68 = natural gas cost, 119.58 = pounds of CO2 / thousand cubic ft of natural gas, 12 mo/yr
     natural_gas_emission = round(((natural_gas_amount / 10.68) * 119.58 * 12), 2)
 
@@ -68,7 +70,80 @@ def energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount
 
     return total_energy_emission_ton
 
-print(energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount, propane_amount))
+# energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount, propane_amount)
+# num_people = input("enter num people:")
+def waste(num_people): 
+
+    waste_emission_lb = round((int(num_people) * 692), 2)
+
+    waste_emission_ton = round(waste_emission_lb * 0.0005)
+
+    return waste_emission_ton
+
+# waste(num_people)
+
+meat_serv = input("meat:")
+grain_serv = input("grain:")
+dairy_serv = input("dairy:")
+fruit_serv = input("fruit:")
+
+def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
+
+    meat_emission = round((2.131 * int(meat_serv) + 0.005), 2)
+    grain_emission = round((0.40 * int(grain_serv) - 0.01), 2)
+    dairy_emission = round((0.88 * int(dairy_serv)), 2)
+    fruit_emission = round((0.435 * int(fruit_serv) - 0.02), 2)
+
+    total_food_emission_ton = meat_emission + grain_emission + dairy_emission + fruit_emission
+
+    return round(total_food_emission_ton, 2)
+
+# print(food(meat_serv, grain_serv, dairy_serv, fruit_serv))
+
+# def total():
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title%}Energy Metrics{% endblock %}
-{% block heading1 %}Energy{% endblock %}
+{% block title%}Waste Metrics{% endblock %}
+<br>
+{% block heading1 %}Waste{% endblock %}
 
 <form action="/" method="GET">
 
   <p>Please answer all questions to the best of your ability</p>
     <div>
-
-        Electricity amount per month: $<input type='number' name='electricity' id='electricity'>
+        Do you recycle aluminum?:
+        <input type='radio' name='metal_waste' id='metal_yes'>Yes
+        <input type='radio' name='metal_waste' id='metal_no'>No
         <br>
-        Natural gas amount per month:
-        $<input type='number' name='naturalgas' id='naturalgas'>
+        Do you recycle plastic?
+        <input type='radio' name='plastic_waste' id='plastic_yes'>Yes
+        <input type='radio' name='plastic_waste' id='plastic_no'>No
         <br>
-        Fuel oil amount per month:
-        $<input type='number' name='fuel' id='fuel'>
+        Do you recycle glass?
+        <input type='radio' name='glass_waste' id='glass_yes'>Yes
+        <input type='radio' name='glass_waste' id='glass_no'>No
         <br>
-        Propane amount per month:
-        $<input type='number' name='propane' id='propane'>
+    
         <br><input type='submit' value="Next">
     </div>
 </form>
