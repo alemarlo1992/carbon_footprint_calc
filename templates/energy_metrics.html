@@ -3,21 +3,25 @@
 {% block title%}Energy Metrics{% endblock %}
 {% block heading1 %}Energy{% endblock %}
 
-<form action="/" method="GET">
+{% block content%}
+
+<form action="/waste_metric" method="GET">
 
   <p>Please answer all questions to the best of your ability</p>
     <div>
-
-        Electricity amount per month: $<input type='number' name='electricity' id='electricity'>
+        <h2>Personal Information</h2>
+        Enter zipcode: <input type='text' name='user_zipcode' id='user_zipcode'>
+        <br>
+        Electricity amount per month: $<input type='number' name='electricity_amount' id='electricity_amount'>
         <br>
         Natural gas amount per month:
-        $<input type='number' name='naturalgas' id='naturalgas'>
+        $<input type='number' name='natural_gas_amount' id='natural_gas_amount'>
         <br>
         Fuel oil amount per month:
-        $<input type='number' name='fuel' id='fuel'>
+        $<input type='number' name='fuel_oil_amount' id='fuel_oil_amount'>
         <br>
         Propane amount per month:
-        $<input type='number' name='propane' id='propane'>
+        $<input type='number' name='propane_amount' id='propane_amount'>
         <br><input type='submit' value="Next">
     </div>
 </form>

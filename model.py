@@ -18,12 +18,12 @@ class User(db.Model):
     __tablename__ = "users"
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    fname = db.Column(db.String(20), nullable=False)
-    lname = db.Column(db.String(20), nullable=False)
-    zipcode = db.Column(db.Integer, nullable=False)
-    email = db.Column(db.String(70), nullable=False, unique=True)
-    password = db.Column(db.String(20), nullable=False)
-    profile_created_date = db.Column(db.DateTime, nullable=False)
+    fname = db.Column(db.String(20), nullable=True)
+    lname = db.Column(db.String(20), nullable=True)
+    zipcode = db.Column(db.Integer, nullable=True)
+    email = db.Column(db.String(70), nullable=True, unique=True)
+    password = db.Column(db.String(20), nullable=True)
+    profile_created_date = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
         """Helpful representation when printed"""
