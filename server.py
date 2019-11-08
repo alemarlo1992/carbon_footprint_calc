@@ -2,12 +2,15 @@
 
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, redirect, request, flash, session
+from flask import Flask, render_template, redirect, request, flash, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
-from model import User, PollutionMetrics, connect_to_db, db
+from model import User, PollutionMetric, connect_to_db, db
 
-from calculations import vehicle_emissions, public_trans, air_travel, energy
+from calculations import energy, food, percentage_difference
+
+from metrics_helper import transportation_conditional, waste_conditional
+
 
 
 app = Flask(__name__)
@@ -38,6 +41,7 @@ def registration_process():
     email = request.form["email"]
     password = request.form["password"]
 
+    #Adding new user to users data table 
     new_user = User(fname=fname, 
                     lname=lname,
                     zipcode=zipcode, 
@@ -62,17 +66,17 @@ def login_process():
     user = User.query.filter_by(email=email).first()
 
     if not user:
-        # flash("No such user")
+        flash("No such user")
         return redirect("/login")
 
     if user.password != password:
-        # flash("Incorrect password")
+        flash("Incorrect password")
         return redirect("/login")
 
     session["user_id"] = user.user_id
 
-    # flash("Logged in")
-    return redirect("trans_metrics")
+    flash("Logged in")
+    return redirect("/pollution_metrics")
 
 @app.route("/logout")
 def logout():
@@ -84,66 +88,96 @@ def logout():
 
 @app.route("/guest_user")
 def guest(): 
-    guest = User()
-    db.session.add(guest)
+    """Guest user is being added to user data table and to the session"""
+    fname = "guest_user"
+    user = User(fname=fname)
+    session['user_id'] = user.user_id
+    db.session.add(user)
+    
     db.session.commit()
 
+    return redirect('/pollution_metrics')
 
-@app.route('/trans_metrics', methods=["GET"])
+
+@app.route('/pollution_metrics', methods=["GET"])
 def transportation():
     """Transporation form"""
 
-    return render_template("trans_metrics.html")
+    return render_template("pollution_metrics.html")
 
-@app.route('/get_trans_metrics', methods=["POST"])
-def get_trans_metric():
+@app.route('/pollution_metrics', methods=["POST"])
+def get_pollution_metric():
     """Get user form inputs from transportation & calculate their trans_metrics emissions"""
-
+    transportation = request.form["transportation"]
     miles_per_week = request.form["miles_per_week"]
-    vehicle_num = request.form["vehicle_num"]
     air_miles_yr = request.form["air_miles_yr"]
+    #set default value for user 
 
-    print("ITS HERE !!!!!!!!!!!!!!!!!!!!")
-    print(vehicle_emissions(vehicle_num, miles_per_week))
-    print(public_trans(miles_per_week))
-    print(air_travel(air_miles_yr))
-    print("ITS HERE !!!!!!!!!!!!!!!!!!!!")
+    vehicle_num = request.form["vehicle_num"]
 
-    # if user is logedin 
-    # save their metrics 
-    # else 
-    # still save them 
-
-    return redirect('/energy_metrics')
-
-@app.route('/energy_metrics', methods=["GET"])
-def energy_metrics():
-    """Energy form inputs"""
-
-    return render_template("energy_metrics.html")
-
-@app.route('/get_energy_metrics', methods=["POST"])
-def get_energy_metrics():
-    """Get user form inputs from energy form & calculate their energy_metrics emissions"""
     user_zipcode = request.form["user_zipcode"]
     electricity_amount = request.form["electricity_amount"]
     natural_gas_amount = request.form["natural_gas_amount"]
     fuel_oil_amount = request.form["fuel_oil_amount"]
     propane_amount = request.form["propane_amount"]
 
-    print("ITS HERE !!!!!!!!!!!!!!!!!!!!")
-    print(energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount, propane_amount))
-    print("ITS HERE !!!!!!!!!!!!!!!!!!!!")
+    num_people = request.form["num_people"]
+    metal_waste = request.form["metal_waste"]
+    plastic_waste = request.form["plastic_waste"]
+    glass_waste = request.form["glass_waste"]
 
-    return redirect('/waste_metrics')
+    meat_serv = request.form["meat_serv"]
+    grain_serv = request.form["grain_serv"]
+    dairy_serv = request.form["dairy_serv"]
+    fruit_serv = request.form["fruit_serv"]
 
-# @app.route('/waste_metrics')
-# def waste_metrics():
-#     """waste_metrics Energy Inputs"""
+    """Transportation metric"""
+    trans_metric = transportation_conditional(transportation,
+                                                air_miles_yr,
+                                                miles_per_week, 
+                                                vehicle_num)
 
-#     return render_template("waste_metrics.html")
+
+    """Energy metric"""
+    energy_metric = energy(user_zipcode, 
+                            natural_gas_amount,
+                            electricity_amount, 
+                            fuel_oil_amount, 
+                            propane_amount)
 
 
+    """Waste metric"""
+    waste_metric = waste_conditional(num_people, 
+                                        metal_waste, 
+                                        plastic_waste, 
+                                        glass_waste)
+  
+
+    """Food metric"""
+    food_metric = food(meat_serv, 
+                        grain_serv, 
+                        dairy_serv, 
+                        fruit_serv)
+
+    #Assigning corresponding pollution metrics for each user in the polution_metrics table 
+    pollution_metric = PollutionMetric(user_id=session['user_id'], 
+                        trans_metric=trans_metric,  
+                        energy_metric= energy_metric,
+                        waste_metric=waste_metric,
+                        food_metric=food_metric)
+    #Adding corresponding metrics to db table 
+    db.session.add(pollution_metric)
+    #commiting those changes 
+    db.session.commit()
+
+    return redirect('/score')
+
+
+@app.route('/score', methods=["GET"])
+def score():   
+    """Render template score.html"""
+
+    return render_template("score.html")
 
 
 if __name__ == "__main__":

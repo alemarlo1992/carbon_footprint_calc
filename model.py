@@ -2,7 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 import datetime
-
+from datetime import datetime
 
 # This is the connection to the PostgreSQL database; we're getting this through
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
@@ -23,7 +23,7 @@ class User(db.Model):
     zipcode = db.Column(db.Integer, nullable=True)
     email = db.Column(db.String(70), nullable=True, unique=True)
     password = db.Column(db.String(20), nullable=True)
-    profile_created_date = db.Column(db.DateTime, nullable=True)
+    profile_created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     def __repr__(self):
         """Helpful representation when printed"""
@@ -31,7 +31,7 @@ class User(db.Model):
         return f"<User Info: user_id= {self.user_id}, name= {self.fname}, email={self.email}>"
 
 
-class PollutionMetrics(db.Model):
+class PollutionMetric(db.Model):
 
     """User pollution metrics"""
 
@@ -43,12 +43,12 @@ class PollutionMetrics(db.Model):
     energy_metric = db.Column(db.Integer, nullable=True)
     waste_metric = db.Column(db.Integer, nullable=True)
     food_metric = db.Column(db.Integer, nullable=True)
-    created_date = db.Column(db.DateTime, nullable=False)
+    created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     def __repr__(self):
         """Helpfull representation when printed"""
 
-        return f"""<Pollution metrics: 
+        return f"""<Pollution metric: 
                     trans_metric = {self.trans_metric}, 
                     energy_metric = {self.energy_metric}, 
                     waste_metric = {self.waste_metric}, 
