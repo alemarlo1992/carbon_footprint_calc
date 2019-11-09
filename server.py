@@ -91,11 +91,12 @@ def guest():
     """Guest user is being added to user data table and to the session"""
     fname = "guest_user"
     user = User(fname=fname)
-    session['user_id'] = user.user_id
+
     db.session.add(user)
     
     db.session.commit()
 
+    session['user_id'] = user.user_id
     return redirect('/pollution_metrics')
 
 
@@ -176,8 +177,17 @@ def get_pollution_metric():
 @app.route('/score', methods=["GET"])
 def score():   
     """Render template score.html"""
+    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    for metric in user_metric: 
+        score = metric.trans_metric + metric.energy_metric + metric.waste_metric + metric.food_metric
 
-    return render_template("score.html")
+    avg_comparison = int(percentage_difference(score))
+
+    return render_template("score.html", score=score, avg_comparison=avg_comparison)
+
+# @app.route('/score', methods=)
+
+
 
 
 if __name__ == "__main__":

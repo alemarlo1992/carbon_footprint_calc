@@ -62,8 +62,6 @@ def waste(num_people):
     """Calculates the emissions released due to waste per year in tons/yr"""
     waste_emission_lb = round((int(num_people) * 692), 2)
 
-    # waste_emission_ton = round(waste_emission_lb * 0.0005)
-
     return waste_emission_lb
 
 """Food Metrics calculation"""
@@ -79,11 +77,11 @@ def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
     return round(total_food_emission_ton, 2)
 
 
-def percentage_difference(user_total):
+def percentage_difference(score):
     """Calculated the percentage difference between average American & user"""
-    avg_american = 50.73
+    avg_american = 43.83
 
-    percentage_diff = abs(avg_american - user_total) / ((avg_american + user_total) / 2)
+    percentage_diff = abs(avg_american - score) / ((avg_american + score) / 2) * 100
 
     return percentage_diff
 
