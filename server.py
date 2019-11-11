@@ -50,8 +50,10 @@ def registration_process():
 
     db.session.add(new_user)
     db.session.commit()
+    session['user_id'] = new_user.user_id
 
-    return redirect("/")
+
+    return redirect("/pollution_metrics")
 
 @app.route('/login', methods=["GET"])
 def login(): 
@@ -110,6 +112,7 @@ def transportation():
 def get_pollution_metric():
     """Get user form inputs from transportation & calculate their trans_metrics emissions"""
     transportation = request.form["transportation"]
+    pt_miles_per_week = request.form["pt_miles_per_week"]
     miles_per_week = request.form["miles_per_week"]
     air_miles_yr = request.form["air_miles_yr"]
     #set default value for user 
@@ -132,8 +135,10 @@ def get_pollution_metric():
     dairy_serv = request.form["dairy_serv"]
     fruit_serv = request.form["fruit_serv"]
 
+
     """Transportation metric"""
     trans_metric = transportation_conditional(transportation,
+                                                pt_miles_per_week,
                                                 air_miles_yr,
                                                 miles_per_week, 
                                                 vehicle_num)
@@ -174,18 +179,57 @@ def get_pollution_metric():
     return redirect('/score')
 
 
+@app.route('/datajs.json')
+def datajs():
+    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    for m in user_metric: 
+        trans_metric = m.trans_metric
+        energy_metric = m.energy_metric
+        waste_metric = m.waste_metric
+        food_metric = m.food_metric
+
+    data_dict = {
+                    "labels": [
+                        "Transportation",
+                        "Energy",
+                        "Waste",
+                        "Food"
+                    ],
+                    "datasets": [
+                        {
+                            "data": [trans_metric, energy_metric, waste_metric, food_metric],
+                            "backgroundColor": [
+                                "#FF6384",
+                                "#36A2EB",
+                                "#FFCE56",
+                                "#63FFDE"
+                            ],
+                    "hoverBackgroundColor": [
+                        "#FF6384",
+                        "#36A2EB",
+                        "#FFCE56",
+                        "#63FF90"
+                    ]
+                }]
+        }
+    print(data_dict)
+    return jsonify(data_dict)
+
+
 @app.route('/score', methods=["GET"])
 def score():   
     """Render template score.html"""
     user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
-    for metric in user_metric: 
-        score = metric.trans_metric + metric.energy_metric + metric.waste_metric + metric.food_metric
-
+    for m in user_metric: 
+        score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
+    
     avg_comparison = int(percentage_difference(score))
+       
+    return render_template("score.html", 
+                                score=score, 
+                                avg_comparison=avg_comparison
+                                )
 
-    return render_template("score.html", score=score, avg_comparison=avg_comparison)
-
-# @app.route('/score', methods=)
 
 
 
