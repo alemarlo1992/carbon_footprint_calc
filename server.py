@@ -55,6 +55,53 @@ def registration_process():
 
     return redirect("/pollution_metrics")
 
+
+@app.route('/user_data.json')
+def user_data():
+    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    for m in user_metric: 
+        trans_metric = m.trans_metric
+        energy_metric = m.energy_metric
+        waste_metric = m.waste_metric
+        food_metric = m.food_metric
+
+    data_dict = {
+                    "labels": [
+                        "Transportation",
+                        "Energy",
+                        "Waste",
+                        "Food"
+                    ],
+                    "datasets": [
+                        {
+                            "data": [trans_metric, energy_metric, waste_metric, food_metric],
+                            "backgroundColor": [
+                                "#FF6384",
+                                "#36A2EB",
+                                "#FFCE56",
+                                "#63FFDE"
+                            ],
+                    "hoverBackgroundColor": [
+                        "#FF6384",
+                        "#36A2EB",
+                        "#FFCE56",
+                        "#63FF90"
+                    ]
+                }]
+        }
+    return jsonify(data_dict)
+
+@app.route('/user_profile')
+def user_profile():
+    """User profile information"""
+    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    for m in user_metric: 
+        score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
+
+    avg_comparison = int(percentage_difference(score))
+    return render_template("users.html", score=score, avg_comparison=avg_comparison)
+
+
 @app.route('/login', methods=["GET"])
 def login(): 
     """Render template login.html"""
@@ -111,13 +158,20 @@ def transportation():
 @app.route('/pollution_metrics', methods=["POST"])
 def get_pollution_metric():
     """Get user form inputs from transportation & calculate their trans_metrics emissions"""
+    # metrics = dict(request.form)
+    # print(metrics)
+
     transportation = request.form["transportation"]
     pt_miles_per_week = request.form["pt_miles_per_week"]
-    miles_per_week = request.form["miles_per_week"]
     air_miles_yr = request.form["air_miles_yr"]
     #set default value for user 
 
     vehicle_num = request.form["vehicle_num"]
+    mi_wk_1 = request.form["mi_wk_1"]
+    mi_wk_2 = request.form["mi_wk_2"]
+    mi_wk_3 = request.form["mi_wk_3"]
+    mi_wk_4 = request.form["mi_wk_4"]
+    mi_wk_5 = request.form["mi_wk_5"]
 
     user_zipcode = request.form["user_zipcode"]
     electricity_amount = request.form["electricity_amount"]
@@ -138,9 +192,14 @@ def get_pollution_metric():
 
     """Transportation metric"""
     trans_metric = transportation_conditional(transportation,
+                                                num_people,
                                                 pt_miles_per_week,
                                                 air_miles_yr,
-                                                miles_per_week, 
+                                                mi_wk_1, 
+                                                mi_wk_2, 
+                                                mi_wk_3,
+                                                mi_wk_4,
+                                                mi_wk_5, 
                                                 vehicle_num)
 
 
@@ -179,7 +238,7 @@ def get_pollution_metric():
     return redirect('/score')
 
 
-@app.route('/datajs.json')
+@app.route('/data.json')
 def datajs():
     user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
     for m in user_metric: 
@@ -212,7 +271,6 @@ def datajs():
                     ]
                 }]
         }
-    print(data_dict)
     return jsonify(data_dict)
 
 
@@ -227,11 +285,7 @@ def score():
        
     return render_template("score.html", 
                                 score=score, 
-                                avg_comparison=avg_comparison
-                                )
-
-
-
+                                avg_comparison=avg_comparison)
 
 
 if __name__ == "__main__":

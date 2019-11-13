@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title%}User Information{% endblock %}
+{% block heading1 %}User Information{% endblock %}
+
+{% block content%}
+<head>
+      <div id='score'>  
+
+      <p>This year you released {{ score }} tons of carbon emissions! </p>
+      <p>You are {{ avg_comparison }} % better than the average american.</p>
+
+    </div>
+
+  <div class="score-chart">
+    <canvas id="donutChart"></canvas>
+    <div id="donutLegend" class="chart-legend"></div>
+  </div>
+
+  <div class="score-chart">
+    <canvas id="lineChart"></canvas>
+    <div id="lineLegend" class="chart-legend"></div>
+  </div>
+
+   </head>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+
+     <script type="text/javascript">
+    
+    const options = {
+      responsive: true
+    };
+
+    // Make Donut Chart of percent of different types of scores
+    var ctx_donut = $("#donutChart").get(0).getContext("2d");
+
+    $.get("/data.json", function (data) {
+
+      let myDonutChart = new Chart(ctx_donut, {
+                                              type: 'doughnut',
+                                              data: data,
+                                              options: options
+                                            });
+      $('#donutLegend').html(myDonutChart.generateLegend())
+  });
+    </script>
+
+{% endblock %}

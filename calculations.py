@@ -1,23 +1,42 @@
+
 """Calculations applied to the pollution metrics"""
 
 from RawData.zipcodeData import get_zipcodes
+import statistics
 
 
 """Transportation metric calculation"""
-def vehicle_emissions(vehicle_num, miles_per_week):
+def vehicle_emissions(vehicle_num, 
+                        mi_wk_1, 
+                        mi_wk_2, 
+                        mi_wk_3,
+                        mi_wk_4,
+                        mi_wk_5):
     """Calculates the emissions released due to vehicle use per year in tons/yr"""
     # 52.14 = weeks/yr, 21.6 = Average household fuel, 19.6 = lb of CO2 emitted/yr, 1.01 = lb of other gases /yr 
-    emission_lb = round((((int(vehicle_num) * int(miles_per_week) * 52.14) / 21.6) * 19.6 * 1.01), 2)
-    # conversion from lb to ton 
+    mi_for_veh = [int(mi_wk_1), int(mi_wk_2), int(mi_wk_3), int(mi_wk_4), int(mi_wk_5)]
+    mi_list = []
+    for miles in mi_for_veh: 
+        if miles > 0: 
+            mi_list.append(miles)
+
+    avg_miles = sum(mi_list)/ len(mi_list)
+
+    veh_num = int(vehicle_num) 
+
+    emission_lb = round((((veh_num * avg_miles * 52.14) / 21.6) * 19.6 * 1.01), 2)
+    print(emission_lb)
+
     vehicle_emission_ton = round((emission_lb * 0.0005), 2)
+
 
     return vehicle_emission_ton
 
 
-def public_trans(miles_per_week):
+def public_trans(num_people, pt_miles_per_week):
     """Calculated the emissions released due to public trans in tons/yr"""
     # y = mx + b => parameters calculated from coolclimate.org 
-    public_trans_emission_ton = round((0.0002 * int(miles_per_week) * 52.14 + 0.0016), 2)
+    public_trans_emission_ton = round((int(num_people) *(0.0002 * int(pt_miles_per_week) * 52.14 + 0.0016)), 2)
 
     return public_trans_emission_ton
 
@@ -80,8 +99,10 @@ def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
 def percentage_difference(score):
     """Calculated the percentage difference between average American & user"""
     avg_american = 43.83
-
-    percentage_diff = abs(avg_american - score) / ((avg_american + score) / 2) * 100
+    if score < avg_american: 
+        percentage_diff = abs(avg_american - score) / ((avg_american + score) / 2) * 100
+    else: 
+        percentage_diff = - abs(avg_american - score) / ((avg_american + score) / 2) * 100
 
     return percentage_diff
 

@@ -5,18 +5,20 @@
 
 {% block content%}
 
-        <h2>Register New User</h2>
-        <p><a href="/register">Register Here</a></p>
         {% if 'user_id' in session %}
         <h2>Log Out</h2><br>
         <form action="/logout">
+        <p><a href="/user_profile">User Profile</a></p>
 
         <input type="submit" value="Log Out">
+
         </form>
         {% else %}
         <h2>Login</h2>
         <p><a href="/login" id="login">Login Here</a></p>
-        <p><a href="/guest_user" id="guest_user">Guest</a></p>
+        <h2>Register New User</h2>
+        <p><a href="/register">Register Here</a></p>
+        <p><a href="/guest_user" id="guest_user">Guest User</a></p>
 
 
 
