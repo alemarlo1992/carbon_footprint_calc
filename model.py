@@ -31,11 +31,11 @@ class User(db.Model):
         return f"<User Info: user_id= {self.user_id}, name= {self.fname}, email={self.email}>"
 
 
-class PollutionMetric(db.Model):
+class Metric(db.Model):
 
     """User pollution metrics"""
 
-    __tablename__ = "pollution_metrics"
+    __tablename__ = "metrics"
 
     metric_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
@@ -43,6 +43,8 @@ class PollutionMetric(db.Model):
     energy_metric = db.Column(db.Integer, nullable=True)
     waste_metric = db.Column(db.Integer, nullable=True)
     food_metric = db.Column(db.Integer, nullable=True)
+    score = db.Column(db.Integer, nullable=True)
+    avg_comparison = db.Column(db.Integer, nullable=True)
     created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     def __repr__(self):
@@ -52,11 +54,45 @@ class PollutionMetric(db.Model):
                     trans_metric = {self.trans_metric}, 
                     energy_metric = {self.energy_metric}, 
                     waste_metric = {self.waste_metric}, 
-                    food_metric = {self.food_metric}
+                    food_metric = {self.food_metric}>
                 """
 
     user = db.relationship("User",
                             backref=db.backref("pollution_metrics"))
+
+
+class RecType(db.Model):
+    """Recommendation types"""
+    __tablename__ = "rec_types"
+
+    rec_types_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    category_name = db.Column(db.String(20), nullable=True)
+
+    def __repr__(self):
+        """Helpfull representation when printed"""
+        return f"<rec_id: {self.rec_types_id}, category_name: {self.category_name}>"
+
+    rec_type = db.relationship("RecType",
+                                backref=db.backref("recs"))
+
+class Rec(db.Model):
+    """Recommendations table"""
+    __tablename__ = "recs"
+
+    rec_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    rec_types_id = db.Column(db.Integer, db.ForeignKey('rec_types.rec_types_id'))
+
+    def __repr__(self):
+        """Helpfull representation when printed"""
+        return f"""<rec_id: {self.rec_types_id}, 
+                    user_id: {self.category_name},
+                    rec_types_id: {self.rec_type_id}>"""
+
+    rec = db.relationship("Rec", 
+                            backref=db.backref("users"))
+
+
 
 ################################################################################
 def connect_to_db(app):

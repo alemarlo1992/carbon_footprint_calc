@@ -4,16 +4,18 @@ from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
+# from flask.ext.babel import Babel, gettext, ngettext, lazy_gettext
 
-from model import User, PollutionMetric, connect_to_db, db
-
+from model import User, Metric, connect_to_db, db
 from calculations import energy, food, percentage_difference
-
 from metrics_helper import transportation_conditional, waste_conditional
 
 
 
 app = Flask(__name__)
+# app.config.from_pyfile('mysettings.cfg')
+# babel = Babel(app)
+
 
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABCDEFG"
@@ -58,7 +60,7 @@ def registration_process():
 
 @app.route('/user_data.json')
 def user_data():
-    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     for m in user_metric: 
         trans_metric = m.trans_metric
         energy_metric = m.energy_metric
@@ -94,7 +96,7 @@ def user_data():
 @app.route('/user_profile')
 def user_profile():
     """User profile information"""
-    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     for m in user_metric: 
         score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
 
@@ -225,7 +227,7 @@ def get_pollution_metric():
                         fruit_serv)
 
     #Assigning corresponding pollution metrics for each user in the polution_metrics table 
-    pollution_metric = PollutionMetric(user_id=session['user_id'], 
+    pollution_metric = Metric(user_id=session['user_id'], 
                         trans_metric=trans_metric,  
                         energy_metric= energy_metric,
                         waste_metric=waste_metric,
@@ -240,7 +242,7 @@ def get_pollution_metric():
 
 @app.route('/data.json')
 def datajs():
-    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     for m in user_metric: 
         trans_metric = m.trans_metric
         energy_metric = m.energy_metric
@@ -277,11 +279,21 @@ def datajs():
 @app.route('/score', methods=["GET"])
 def score():   
     """Render template score.html"""
-    user_metric = PollutionMetric.query.filter_by(user_id=session['user_id']).all()
+    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     for m in user_metric: 
         score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
     
     avg_comparison = int(percentage_difference(score))
+    print(avg_comparison)
+
+    if avg_comparison > 30: 
+        flash('''Congratulations!
+                     You are an awesome HUMAN!
+                     Your input in our recommendations section would 
+                     be greatly appreciated so, other humans can follow your 
+                     footprint. ''')
+    else: 
+        flash('Find ways reduce your footprint in our recommendations section!')
        
     return render_template("score.html", 
                                 score=score, 

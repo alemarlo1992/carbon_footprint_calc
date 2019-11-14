@@ -12,11 +12,15 @@
 <h1>{% block heading1 %}{% endblock %}</h1>
 {% block content %}
 <body>
-  <ul>
-      {% for message in get_flashed_messages() %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
       <li>{{ message }}</li>
-      {% endfor %}
-  </ul>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 </body>
 {% endblock %}
 </html>
