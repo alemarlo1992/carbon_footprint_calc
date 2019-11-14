@@ -1,8 +1,8 @@
 """Models and database functions for Carbon Footprint Calculator"""
 
-from flask_sqlalchemy import SQLAlchemy
-import datetime
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+
 
 # This is the connection to the PostgreSQL database; we're getting this through
 # the Flask-SQLAlchemy helper library. On this, we can find the `session`
@@ -50,7 +50,7 @@ class Metric(db.Model):
     def __repr__(self):
         """Helpfull representation when printed"""
 
-        return f"""<Pollution metric: 
+        return f"""< Metrics: 
                     trans_metric = {self.trans_metric}, 
                     energy_metric = {self.energy_metric}, 
                     waste_metric = {self.waste_metric}, 
@@ -58,22 +58,21 @@ class Metric(db.Model):
                 """
 
     user = db.relationship("User",
-                            backref=db.backref("pollution_metrics"))
-
+                            backref=db.backref("metrics"))
 
 class RecType(db.Model):
     """Recommendation types"""
     __tablename__ = "rec_types"
 
-    rec_types_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    rec_type_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     category_name = db.Column(db.String(20), nullable=True)
 
     def __repr__(self):
         """Helpfull representation when printed"""
-        return f"<rec_id: {self.rec_types_id}, category_name: {self.category_name}>"
+        return f"<rec_id: {self.rec_type_id}, category_name: {self.category_name}>"
 
-    rec_type = db.relationship("RecType",
-                                backref=db.backref("recs"))
+    recs = db.relationship("Rec", 
+                            backref=db.backref("rec_type"))
 
 class Rec(db.Model):
     """Recommendations table"""
@@ -81,16 +80,18 @@ class Rec(db.Model):
 
     rec_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    rec_types_id = db.Column(db.Integer, db.ForeignKey('rec_types.rec_types_id'))
+    rec_type_id = db.Column(db.Integer, db.ForeignKey('rec_types.rec_type_id'))
+    comment = db.Column(db.Text, nullable=True)
+
+    user = db.relationship("User", 
+                                backref=db.backref("recs"), 
+                                order_by=rec_type_id)
 
     def __repr__(self):
         """Helpfull representation when printed"""
-        return f"""<rec_id: {self.rec_types_id}, 
+        return f"""<rec_id: {self.rec_type_id}, 
                     user_id: {self.category_name},
-                    rec_types_id: {self.rec_type_id}>"""
-
-    rec = db.relationship("Rec", 
-                            backref=db.backref("users"))
+                    rec_type_id: {self.rec_type_id}>"""
 
 
 
