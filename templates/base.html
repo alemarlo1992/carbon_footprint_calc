@@ -8,13 +8,16 @@
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+
+
 </head>
 <h1>{% block heading1 %}{% endblock %}</h1>
 {% block content %}
 <body>
 {% with messages = get_flashed_messages() %}
   {% if messages %}
-    <ul class=flashes>
+    <ul>
     {% for message in messages %}
       <li>{{ message }}</li>
     {% endfor %}

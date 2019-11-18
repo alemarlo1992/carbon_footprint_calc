@@ -90,7 +90,7 @@ class Rec(db.Model):
     def __repr__(self):
         """Helpfull representation when printed"""
         return f"""<rec_id: {self.rec_type_id}, 
-                    user_id: {self.category_name},
+                    user_id: {self.user_id},
                     rec_type_id: {self.rec_type_id}>"""
 
 

@@ -1,4 +1,3 @@
-
 """Calculations applied to the pollution metrics"""
 
 from RawData.zipcodeData import get_zipcodes
@@ -105,10 +104,6 @@ def percentage_difference(score):
         percentage_diff = - abs(avg_american - score) / ((avg_american + score) / 2) * 100
 
     return percentage_diff
-
-
-
-
 
 
 

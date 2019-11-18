@@ -300,6 +300,43 @@ def score():
                                 score=score, 
                                 avg_comparison=avg_comparison)
 
+@app.route('/recs', methods=["GET"])
+def comments(): 
+    """Render recommendations.html"""
+    comments = Rec.query.all()
+
+    return render_template("recommendations.html", comments=comments)
+
+
+@app.route('/recs', methods=["POST"])
+def get_comments(): 
+    """Save user comments in recs datatable"""
+    comment = request.form["comment"]
+    print(comment)
+
+    add_comment = Rec(user_id=session['user_id'],
+                        comment=comment)
+    db.session.add(add_comment)
+    db.session.commit()
+
+
+    return redirect('/recs')
+
+# @app.route('/user_comments.json')
+# def pass_comments():
+#     """Passing unpacked comments to front end"""
+#     comments = Rec.query.all()
+#     print("comments are here!!!!!!!!")
+#     print(comments)
+#     print("comments are here!!!!!!!!")
+
+#     user_recs = get_comments(comments)
+#     print(user_recs)
+
+ 
+#     return jsonify(user_recs)
+
+
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
