@@ -8,9 +8,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from model import User, Metric, Rec, connect_to_db, db
 from calculations import energy, food, percentage_difference
-from metrics_helper import transportation_conditional, waste_conditional
-
-
+from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
+from metrics_helper import user_login, get_score, avg_flash_msgs
 
 app = Flask(__name__)
 # app.config.from_pyfile('mysettings.cfg')
@@ -60,47 +59,19 @@ def registration_process():
 
 @app.route('/user_data.json')
 def user_data():
+    """Metrics for user in session"""
     user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
-    for m in user_metric: 
-        trans_metric = m.trans_metric
-        energy_metric = m.energy_metric
-        waste_metric = m.waste_metric
-        food_metric = m.food_metric
+    user_data = user_metrics(user_metric)
 
-    data_dict = {
-                    "labels": [
-                        "Transportation",
-                        "Energy",
-                        "Waste",
-                        "Food"
-                    ],
-                    "datasets": [
-                        {
-                            "data": [trans_metric, energy_metric, waste_metric, food_metric],
-                            "backgroundColor": [
-                                "#FF6384",
-                                "#36A2EB",
-                                "#FFCE56",
-                                "#63FFDE"
-                            ],
-                    "hoverBackgroundColor": [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56",
-                        "#63FF90"
-                    ]
-                }]
-        }
-    return jsonify(data_dict)
+    return jsonify(user_data)
 
 @app.route('/user_profile')
 def user_profile():
     """User profile information"""
     user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
-    for m in user_metric: 
-        score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
-
+    score = get_score(user_metric)
     avg_comparison = int(percentage_difference(score))
+
     return render_template("users.html", score=score, avg_comparison=avg_comparison)
 
 
@@ -111,18 +82,14 @@ def login():
 
 @app.route('/login', methods=["POST"])
 def login_process(): 
+    """User login"""
+
     email = request.form["email"]
     password = request.form["password"]
 
     user = User.query.filter_by(email=email).first()
 
-    if not user:
-        flash("No such user")
-        return redirect("/login")
-
-    if user.password != password:
-        flash("Incorrect password")
-        return redirect("/login")
+    user_verification = user_login(user, password)
 
     session["user_id"] = user.user_id
 
@@ -131,9 +98,9 @@ def login_process():
 
 @app.route("/logout")
 def logout():
+    """Log out user from session"""
     #delete info from session
     session.pop('user_id')
-    #From solution: del session["user_id"]
 
     return redirect('/')
 
@@ -153,16 +120,13 @@ def guest():
 
 @app.route('/pollution_metrics', methods=["GET"])
 def transportation():
-    """Transporation form"""
+    """Render transporation form"""
 
     return render_template("pollution_metrics.html")
 
 @app.route('/pollution_metrics', methods=["POST"])
 def get_pollution_metric():
     """Get user form inputs from transportation & calculate their trans_metrics emissions"""
-    # metrics = dict(request.form)
-    # print(metrics)
-
     transportation = request.form["transportation"]
     pt_miles_per_week = request.form["pt_miles_per_week"]
     air_miles_yr = request.form["air_miles_yr"]
@@ -221,10 +185,7 @@ def get_pollution_metric():
   
 
     """Food metric"""
-    food_metric = food(meat_serv, 
-                        grain_serv, 
-                        dairy_serv, 
-                        fruit_serv)
+    food_metric = food(meat_serv, grain_serv, dairy_serv, fruit_serv)
 
     #Assigning corresponding pollution metrics for each user in the polution_metrics table 
     pollution_metric = Metric(user_id=session['user_id'], 
@@ -242,59 +203,21 @@ def get_pollution_metric():
 
 @app.route('/data.json')
 def datajs():
+    """Metrics rendered to user_profile"""
     user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     
-    for m in user_metric: 
-        trans_metric = m.trans_metric
-        energy_metric = m.energy_metric
-        waste_metric = m.waste_metric
-        food_metric = m.food_metric
+    user_data = user_metrics(user_metric)
 
-    data_dict = {
-                    "labels": [
-                        "Transportation",
-                        "Energy",
-                        "Waste",
-                        "Food"
-                    ],
-                    "datasets": [
-                        {
-                            "data": [trans_metric, energy_metric, waste_metric, food_metric],
-                            "backgroundColor": [
-                                "#FF6384",
-                                "#36A2EB",
-                                "#FFCE56",
-                                "#63FFDE"
-                            ],
-                    "hoverBackgroundColor": [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56",
-                        "#63FF90"
-                    ]
-                }]
-        }
-    return jsonify(data_dict)
+    return jsonify(user_data)
 
 
 @app.route('/score', methods=["GET"])
 def score():   
     """Render template score.html"""
     user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
-    for m in user_metric: 
-        score = m.trans_metric + m.energy_metric + m.waste_metric + m.food_metric
-    
+    score = get_score(user_metric)
     avg_comparison = int(percentage_difference(score))
-    print(avg_comparison)
-
-    if avg_comparison > 30: 
-        flash('''Congratulations!
-                     You are an awesome HUMAN!
-                     Your input in our recommendations section would 
-                     be greatly appreciated so, other humans can follow your 
-                     footprint. ''')
-    else: 
-        flash('Find ways reduce your footprint in our recommendations section!')
+    avg_comp_flash = avg_flash_msgs(avg_comparison)
        
     return render_template("score.html", 
                                 score=score, 
@@ -304,7 +227,7 @@ def score():
 def comments(): 
     """Render recommendations.html"""
     comments = Rec.query.order_by(Rec.rec_date.desc()).all()
-    
+
     return render_template("recommendations.html", comments=comments)
 
 
@@ -318,7 +241,6 @@ def get_comments():
     db.session.commit()
 
     return redirect('/recs')
-
 
 
 if __name__ == "__main__":
