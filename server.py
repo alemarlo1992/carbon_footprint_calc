@@ -6,7 +6,7 @@ from flask import Flask, render_template, redirect, request, flash, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 # from flask.ext.babel import Babel, gettext, ngettext, lazy_gettext
 
-from model import User, Metric, Rec, RecType, connect_to_db, db
+from model import User, Metric, Rec, connect_to_db, db
 from calculations import energy, food, percentage_difference
 from metrics_helper import transportation_conditional, waste_conditional
 
@@ -303,8 +303,8 @@ def score():
 @app.route('/recs', methods=["GET"])
 def comments(): 
     """Render recommendations.html"""
-    comments = Rec.query.all()
-
+    comments = Rec.query.order_by(Rec.rec_date.desc()).all()
+    
     return render_template("recommendations.html", comments=comments)
 
 
@@ -312,29 +312,12 @@ def comments():
 def get_comments(): 
     """Save user comments in recs datatable"""
     comment = request.form["comment"]
-    print(comment)
 
-    add_comment = Rec(user_id=session['user_id'],
-                        comment=comment)
+    add_comment = Rec(user_id=session['user_id'], comment=comment)
     db.session.add(add_comment)
     db.session.commit()
 
-
     return redirect('/recs')
-
-# @app.route('/user_comments.json')
-# def pass_comments():
-#     """Passing unpacked comments to front end"""
-#     comments = Rec.query.all()
-#     print("comments are here!!!!!!!!")
-#     print(comments)
-#     print("comments are here!!!!!!!!")
-
-#     user_recs = get_comments(comments)
-#     print(user_recs)
-
- 
-#     return jsonify(user_recs)
 
 
 

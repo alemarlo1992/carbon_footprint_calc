@@ -13,7 +13,7 @@
 
 </head>
 <h1>{% block heading1 %}{% endblock %}</h1>
-{% block content %}
+
 <body>
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -24,6 +24,8 @@
     </ul>
   {% endif %}
 {% endwith %}
+{% block content %}{% endblock %}
+
 </body>
-{% endblock %}
+
 </html>

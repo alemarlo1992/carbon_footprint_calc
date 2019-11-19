@@ -47,6 +47,10 @@ class Metric(db.Model):
     avg_comparison = db.Column(db.Integer, nullable=True)
     created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
+
+    user = db.relationship("User",
+                            backref=db.backref("metrics"))
+
     def __repr__(self):
         """Helpfull representation when printed"""
 
@@ -57,22 +61,6 @@ class Metric(db.Model):
                     food_metric = {self.food_metric}>
                 """
 
-    user = db.relationship("User",
-                            backref=db.backref("metrics"))
-
-class RecType(db.Model):
-    """Recommendation types"""
-    __tablename__ = "rec_types"
-
-    rec_type_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    category_name = db.Column(db.String(20), nullable=True)
-
-    def __repr__(self):
-        """Helpfull representation when printed"""
-        return f"<rec_id: {self.rec_type_id}, category_name: {self.category_name}>"
-
-    recs = db.relationship("Rec", 
-                            backref=db.backref("rec_type"))
 
 class Rec(db.Model):
     """Recommendations table"""
@@ -80,16 +68,16 @@ class Rec(db.Model):
 
     rec_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    rec_type_id = db.Column(db.Integer, db.ForeignKey('rec_types.rec_type_id'))
     comment = db.Column(db.Text, nullable=True)
+    rec_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     user = db.relationship("User", 
                                 backref=db.backref("recs"), 
-                                order_by=rec_type_id)
+                                order_by=rec_id)
 
     def __repr__(self):
         """Helpfull representation when printed"""
-        return f"""<rec_id: {self.rec_type_id}, 
+        return f"""<rec_date: {self.rec_date}, 
                     user_id: {self.user_id},
                     rec_type_id: {self.rec_type_id}>"""
 
