@@ -140,7 +140,7 @@ def logout():
 @app.route("/guest_user")
 def guest(): 
     """Guest user is being added to user data table and to the session"""
-    fname = "guest_user"
+    fname = "Guest"
     user = User(fname=fname)
 
     db.session.add(user)
