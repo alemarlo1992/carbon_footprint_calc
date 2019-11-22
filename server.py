@@ -2,18 +2,18 @@
 
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, redirect, request, flash, session, jsonify
+from flask import Flask, render_template, redirect, request, flash, session, jsonify, g 
 from flask_debugtoolbar import DebugToolbarExtension
-# from flask.ext.babel import Babel, gettext, ngettext, lazy_gettext
+from flask_babel import Babel, gettext, ngettext, lazy_gettext, refresh 
 
 from model import User, Metric, Rec, connect_to_db, db
 from calculations import energy, food, percentage_difference
 from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
-from metrics_helper import user_login, get_score, avg_flash_msgs
+from metrics_helper import user_login, get_score, avg_flash_msgs\
 
 app = Flask(__name__)
-# app.config.from_pyfile('mysettings.cfg')
-# babel = Babel(app)
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+babel = Babel(app)
 
 
 # Required to use Flask sessions and the debug toolbar
@@ -24,6 +24,10 @@ app.secret_key = "ABCDEFG"
 # error.
 app.jinja_env.undefined = StrictUndefined
 
+@babel.localeselector
+def get_locale():
+    return 'es'
+
 @app.route('/')
 def index():
     """Homepage."""
@@ -32,10 +36,12 @@ def index():
 @app.route('/register', methods=["GET"])
 def registration_form(): 
     """Render template registration.html"""
+
     return render_template("registration.html")
 
 @app.route('/register', methods=["POST"])
 def registration_process(): 
+    """Registering user and saving form inputs"""
     fname = request.form["fname"]
     lname = request.form["lname"]
     zipcode = request.form["user_zipcode"]
@@ -78,6 +84,11 @@ def user_profile():
 @app.route('/login', methods=["GET"])
 def login(): 
     """Render template login.html"""
+    login = gettext("Login")
+    email = gettext("Email")
+    password = gettext("Password")
+    log_button = gettext("Log in")
+
     return render_template("login.html")
 
 @app.route('/login', methods=["POST"])
@@ -121,7 +132,6 @@ def guest():
 @app.route('/pollution_metrics', methods=["GET"])
 def transportation():
     """Render transporation form"""
-
     return render_template("pollution_metrics.html")
 
 @app.route('/pollution_metrics', methods=["POST"])
@@ -130,7 +140,6 @@ def get_pollution_metric():
     transportation = request.form["transportation"]
     pt_miles_per_week = request.form["pt_miles_per_week"]
     air_miles_yr = request.form["air_miles_yr"]
-    #set default value for user 
 
     vehicle_num = request.form["vehicle_num"]
     mi_wk_1 = request.form["mi_wk_1"]
@@ -226,7 +235,9 @@ def score():
 @app.route('/recs', methods=["GET"])
 def comments(): 
     """Render recommendations.html"""
+
     comments = Rec.query.order_by(Rec.rec_date.desc()).all()
+    print(comments)
 
     return render_template("recommendations.html", comments=comments)
 

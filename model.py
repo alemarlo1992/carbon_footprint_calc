@@ -79,7 +79,7 @@ class Rec(db.Model):
         """Helpfull representation when printed"""
         return f"""<rec_date: {self.rec_date}, 
                     user_id: {self.user_id},
-                    rec_type_id: {self.rec_type_id}>"""
+                    comment: {self.comment}>"""
 
 
 

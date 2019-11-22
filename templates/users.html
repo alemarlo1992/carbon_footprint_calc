@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title%}User Information{% endblock %}
-{% block heading1 %}User Information{% endblock %}
+{% block title%}{{ _('User Information') }}{% endblock %}
+{% block heading1 %}{{ _('User Information') }}{% endblock %}
 
 {% block content%}
 <head>
       <div id='score'>  
 
-      <p>This year you released {{ score }} tons of carbon emissions! </p>
-      <p>You are {{ avg_comparison }} % better than the average american.</p>
+      <p>{{ _('This year you released') }} {{ score }} {{ _('tons of carbon emissions!') }} </p>
+      <p>{{ _('You are') }} {{ avg_comparison }} % {{ _('better than the average american.') }}</p>
 
     </div>
 

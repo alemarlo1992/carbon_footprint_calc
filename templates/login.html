@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% block title %}Login{% endblock %}
+{% block title %}{{ _('Login') }}{% endblock %}
 
 <form action="/login" method="POST">
-    Email: <input type="text" name="email"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit" value="Log in">
+    {{ _('Email') }}: <input type="text" name="email"><br>
+    {{ _('Password') }}: <input type="password" name="password"><br>
+    <input type="submit" value={{ _('Log in') }}>
 
 
 </form>

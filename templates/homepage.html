@@ -1,24 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title%}Home Page{% endblock %}
-{% block heading1 %}Welcome to Tracer!{% endblock %}
+{% block heading1 %} {{ _('Welcome to Tracer!') }} {% endblock %}
 
 {% block content%}
-
+ <form action="/" method="POST">
+<!--  <div >
+        <input type="radio" name="language" value="spanish" >Español
+        <input type="radio" name="language" value="english">English
+ </div>
+ </form> -->
         {% if 'user_id' in session %}
-        <h2>Log Out</h2><br>
+        <h2>{{ _('Log Out') }}</h2><br>
         <form action="/logout">
-        <p><a href="/user_profile">User Profile</a></p>
+        <p><a href="/user_profile">{{ _('User Profile') }}</a></p>
 
-        <input type="submit" value="Log Out">
+        <input type="submit" value={{ _('Log Out') }}>
 
         </form>
         {% else %}
-        <h2>Login</h2>
-        <p><a href="/login" id="login">Login Here</a></p>
-        <h2>Register New User</h2>
-        <p><a href="/register">Register Here</a></p>
-        <p><a href="/guest_user" id="guest_user">Guest User</a></p>
+        <h2>{{ _('Login') }}</h2>
+        <p><a href="/login" id="login"> {{ _('Login Here') }}</a></p>
+        <h2>{{ _('Register New User') }}</h2>
+        <p><a href="/register"> {{ _('Register Here') }}</a></p>
+        <p><a href="/guest_user" id="guest_user">{{ _('Guest User') }}</a></p>
 
 
 
