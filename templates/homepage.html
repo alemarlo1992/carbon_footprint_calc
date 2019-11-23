@@ -3,8 +3,11 @@
 {% block title%}Home Page{% endblock %}
 {% block heading1 %} {{ _('Welcome to Tracer!') }} {% endblock %}
 
+
 {% block content%}
+<i class="fas fa-globe-americas"></i>
  <form action="/" method="POST">
+
 <!--  <div >
         <input type="radio" name="language" value="spanish" >Español
         <input type="radio" name="language" value="english">English
@@ -24,6 +27,8 @@
         <h2>{{ _('Register New User') }}</h2>
         <p><a href="/register"> {{ _('Register Here') }}</a></p>
         <p><a href="/guest_user" id="guest_user">{{ _('Guest User') }}</a></p>
+
+        <p><a href="/lang" id="lang">Change language here/ Cambie su idioma aquí</a></p>
 
 
 

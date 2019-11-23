@@ -9,7 +9,8 @@ from flask_babel import Babel, gettext, ngettext, lazy_gettext, refresh
 from model import User, Metric, Rec, connect_to_db, db
 from calculations import energy, food, percentage_difference
 from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
-from metrics_helper import user_login, get_score, avg_flash_msgs\
+from metrics_helper import user_login, get_score, avg_flash_msgs, get_user_lang
+
 
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
@@ -26,12 +27,29 @@ app.jinja_env.undefined = StrictUndefined
 
 @babel.localeselector
 def get_locale():
-    return 'es'
+    """Return desired language"""
+    if session.get('lang') == 'es':
+        return 'es'
+    else: 
+        return 'en'
 
 @app.route('/')
 def index():
     """Homepage."""
     return render_template("homepage.html")
+
+@app.route('/lang')
+def get_lang(): 
+    """Render template lang.html"""
+    return render_template("lang.html")
+
+@app.route('/lang', methods=["POST"])
+def change_lang(): 
+    """Get user preferred languague"""
+    lang = request.form["lang"]
+    languague = get_user_lang(lang)
+    return redirect('/')
+
 
 @app.route('/register', methods=["GET"])
 def registration_form(): 
@@ -84,10 +102,6 @@ def user_profile():
 @app.route('/login', methods=["GET"])
 def login(): 
     """Render template login.html"""
-    login = gettext("Login")
-    email = gettext("Email")
-    password = gettext("Password")
-    log_button = gettext("Log in")
 
     return render_template("login.html")
 
