@@ -4,10 +4,10 @@ from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, g 
 from flask_debugtoolbar import DebugToolbarExtension
-from flask_babel import Babel, gettext, ngettext, lazy_gettext, refresh 
+from flask_babel import Babel, gettext, refresh 
 
 from model import User, Metric, Rec, connect_to_db, db
-from calculations import energy, food, percentage_difference
+from calculations import energy, food, percentage_difference, clothing
 from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
 from metrics_helper import user_login, get_score, avg_flash_msgs, get_user_lang
 
@@ -15,7 +15,6 @@ from metrics_helper import user_login, get_score, avg_flash_msgs, get_user_lang
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 babel = Babel(app)
-
 
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABCDEFG"
@@ -25,6 +24,7 @@ app.secret_key = "ABCDEFG"
 # error.
 app.jinja_env.undefined = StrictUndefined
 
+"""Babel localselector will be used to return the users preferred languague"""
 @babel.localeselector
 def get_locale():
     """Return desired language"""
@@ -45,7 +45,7 @@ def get_lang():
 
 @app.route('/lang', methods=["POST"])
 def change_lang(): 
-    """Get user preferred languague"""
+    """Get user preferred languague, either spanish or english"""
     lang = request.form["lang"]
     languague = get_user_lang(lang)
     return redirect('/')
@@ -59,7 +59,7 @@ def registration_form():
 
 @app.route('/register', methods=["POST"])
 def registration_process(): 
-    """Registering user and saving form inputs"""
+    """Registering user and saving form inputs to users datatable"""
     fname = request.form["fname"]
     lname = request.form["lname"]
     zipcode = request.form["user_zipcode"]
@@ -91,12 +91,41 @@ def user_data():
 
 @app.route('/user_profile')
 def user_profile():
-    """User profile information"""
+    """render User profile information"""
     user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     score = get_score(user_metric)
     avg_comparison = int(percentage_difference(score))
+    user_comments = Rec.query.filter_by(user_id=session['user_id']).all()
 
-    return render_template("users.html", score=score, avg_comparison=avg_comparison)
+    return render_template("users.html", score=score, avg_comparison=avg_comparison, user_comments=user_comments)
+
+@app.route('/settings', methods=["GET"])
+def settings(): 
+    """Render template settings.html"""
+    user = User.query.filter_by(user_id=session['user_id']).first()
+
+    return render_template("settings.html", user=user)
+
+@app.route('/settings', methods=["POST"])
+def change_settings(): 
+    """Change user settings and commit session to database"""
+    user = User.query.filter_by(user_id=session['user_id']).first()
+
+    fname = request.form["fname"]
+    lname = request.form["lname"]
+    zipcode = request.form["zipcode"]
+    email = request.form["email"]
+    password = request.form["password"]
+
+    user.fname = fname 
+    user.lname = lname 
+    user.zipcode = zipcode
+    user.email = email 
+    user.password = password 
+
+    db.session.commit()
+
+    return redirect("/user_profile")
 
 
 @app.route('/login', methods=["GET"])
@@ -105,9 +134,10 @@ def login():
 
     return render_template("login.html")
 
+
 @app.route('/login', methods=["POST"])
 def login_process(): 
-    """User login"""
+    """User login process"""
 
     email = request.form["email"]
     password = request.form["password"]
@@ -118,16 +148,18 @@ def login_process():
 
     session["user_id"] = user.user_id
 
-    flash("Logged in")
-    return redirect("/pollution_metrics")
+    flash(gettext("Logged in"))
+    return redirect("/user_profile")
+
 
 @app.route("/logout")
 def logout():
     """Log out user from session"""
     #delete info from session
-    session.pop('user_id')
+    del session["user_id"]
+    flash(gettext("Logged Out."))
+    return redirect("/")
 
-    return redirect('/')
 
 @app.route("/guest_user")
 def guest(): 
@@ -147,6 +179,7 @@ def guest():
 def transportation():
     """Render transporation form"""
     return render_template("pollution_metrics.html")
+
 
 @app.route('/pollution_metrics', methods=["POST"])
 def get_pollution_metric():
@@ -178,6 +211,7 @@ def get_pollution_metric():
     dairy_serv = request.form["dairy_serv"]
     fruit_serv = request.form["fruit_serv"]
 
+    clothes = request.form["clothes"]
 
     """Transportation metric"""
     trans_metric = transportation_conditional(transportation,
@@ -191,7 +225,6 @@ def get_pollution_metric():
                                                 mi_wk_5, 
                                                 vehicle_num)
 
-
     """Energy metric"""
     energy_metric = energy(user_zipcode, 
                             natural_gas_amount,
@@ -199,23 +232,25 @@ def get_pollution_metric():
                             fuel_oil_amount, 
                             propane_amount)
 
-
     """Waste metric"""
     waste_metric = waste_conditional(num_people, 
                                         metal_waste, 
                                         plastic_waste, 
                                         glass_waste)
   
-
     """Food metric"""
     food_metric = food(meat_serv, grain_serv, dairy_serv, fruit_serv)
+
+    """Clothing metric"""
+    clothing_metric = clothing(clothes)
 
     #Assigning corresponding pollution metrics for each user in the polution_metrics table 
     pollution_metric = Metric(user_id=session['user_id'], 
                         trans_metric=trans_metric,  
                         energy_metric= energy_metric,
                         waste_metric=waste_metric,
-                        food_metric=food_metric)
+                        food_metric=food_metric,
+                        clothing_metric=clothing_metric)
     #Adding corresponding metrics to db table 
     db.session.add(pollution_metric)
     #commiting those changes 

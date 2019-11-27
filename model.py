@@ -43,8 +43,7 @@ class Metric(db.Model):
     energy_metric = db.Column(db.Integer, nullable=True)
     waste_metric = db.Column(db.Integer, nullable=True)
     food_metric = db.Column(db.Integer, nullable=True)
-    score = db.Column(db.Integer, nullable=True)
-    avg_comparison = db.Column(db.Integer, nullable=True)
+    clothing_metric = db.Column(db.Integer, nullable=True)
     created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 
@@ -58,7 +57,8 @@ class Metric(db.Model):
                     trans_metric = {self.trans_metric}, 
                     energy_metric = {self.energy_metric}, 
                     waste_metric = {self.waste_metric}, 
-                    food_metric = {self.food_metric}>
+                    food_metric = {self.food_metric},
+                    clothing_metric = {self.clothing_metric}>
                 """
 
 

@@ -94,10 +94,16 @@ def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
 
     return round(total_food_emission_ton, 2)
 
+def clothing(clothes):
+
+    clothes_emission = round((0.0016 * int(clothes) + 0.0003), 2)
+
+    return clothes_emission
+
 
 def percentage_difference(score):
     """Calculated the percentage difference between average American & user"""
-    avg_american = 43.83
+    avg_american = 44.09
     if score < avg_american: 
         percentage_diff = abs(avg_american - score) / ((avg_american + score) / 2) * 100
     else: 

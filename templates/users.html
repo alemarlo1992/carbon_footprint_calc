@@ -42,8 +42,22 @@
                                               data: data,
                                               options: options
                                             });
-      $('#donutLegend').html(myDonutChart.generateLegend())
   });
     </script>
+
+ {% for rec in user_comments %}
+    <div class="user_comment">
+        {{ rec.rec_date }} <br>
+        {{ rec.user.fname }} <br>
+        {{ rec.comment }}<br>
+      </div>
+      {% endfor %}
+
+
+<p><a href="/recs">{{ _('Recommendations') }}</a></p>
+<p><a href="/settings">{{ _('Settings') }}</a></p>
+
+
+
 
 {% endblock %}

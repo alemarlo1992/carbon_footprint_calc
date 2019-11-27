@@ -1,18 +1,10 @@
 {% extends 'base.html' %}
 
 {% block title%}Home Page{% endblock %}
-{% block heading1 %} {{ _('Welcome to Tracer!') }} {% endblock %}
-
+{% block heading1 %}{{ _('Welcome to Tracer!') }}{% endblock %}
 
 {% block content%}
-<i class="fas fa-globe-americas"></i>
- <form action="/" method="POST">
 
-<!--  <div >
-        <input type="radio" name="language" value="spanish" >Español
-        <input type="radio" name="language" value="english">English
- </div>
- </form> -->
         {% if 'user_id' in session %}
         <h2>{{ _('Log Out') }}</h2><br>
         <form action="/logout">
@@ -23,12 +15,12 @@
         </form>
         {% else %}
         <h2>{{ _('Login') }}</h2>
-        <p><a href="/login" id="login"> {{ _('Login Here') }}</a></p>
+        <p><a href="/login" id="login">{{ _('Login Here') }}</a></p>
         <h2>{{ _('Register New User') }}</h2>
-        <p><a href="/register"> {{ _('Register Here') }}</a></p>
+        <p><a href="/register">{{ _('Register Here') }}</a></p>
         <p><a href="/guest_user" id="guest_user">{{ _('Guest User') }}</a></p>
 
-        <p><a href="/lang" id="lang">Change language here/ Cambie su idioma aquí</a></p>
+        <p><a href="/lang" id="lang">Change language/ Cambie de idioma</a></p>
 
 
 
