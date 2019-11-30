@@ -4,13 +4,12 @@ from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session, jsonify, g 
 from flask_debugtoolbar import DebugToolbarExtension
-from flask_babel import Babel, gettext, refresh 
+from flask_babel import Babel, gettext 
 
 from model import User, Metric, Rec, connect_to_db, db
 from calculations import energy, food, percentage_difference, clothing
 from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
 from metrics_helper import user_login, get_score, avg_flash_msgs, get_user_lang
-
 
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
@@ -64,14 +63,14 @@ def registration_process():
     lname = request.form["lname"]
     zipcode = request.form["user_zipcode"]
     email = request.form["email"]
-    password = request.form["password"]
+    password_hash = request.form["password"]
 
     #Adding new user to users data table 
     new_user = User(fname=fname, 
                     lname=lname,
                     zipcode=zipcode, 
                     email=email,
-                    password=password)
+                    password_hash=password_hash)
 
     db.session.add(new_user)
     db.session.commit()
@@ -115,13 +114,13 @@ def change_settings():
     lname = request.form["lname"]
     zipcode = request.form["zipcode"]
     email = request.form["email"]
-    password = request.form["password"]
+    password_hash = request.form["password"]
 
     user.fname = fname 
     user.lname = lname 
     user.zipcode = zipcode
     user.email = email 
-    user.password = password 
+    user.password_hash = password_hash
 
     db.session.commit()
 
@@ -140,16 +139,16 @@ def login_process():
     """User login process"""
 
     email = request.form["email"]
-    password = request.form["password"]
+    password_hash = request.form["password"]
 
     user = User.query.filter_by(email=email).first()
 
-    user_verification = user_login(user, password)
+    user_verification = user_login(user, password_hash)
 
     session["user_id"] = user.user_id
 
     flash(gettext("Logged in"))
-    return redirect("/user_profile")
+    return redirect("/")
 
 
 @app.route("/logout")
