@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
 {% block content %}
-{% block title%}{{ _('Registration') }}{% endblock %}
-
-<h1>{{ _('Registration') }}</h1>
-
-<form action="/register" method="POST">
-    {{ _('First Name') }}: <input type="text" name="fname"><br>
-    {{ _('Last Name') }}: <input type="text" name="lname"><br>
-    {{ _('Zipcode') }}: <input type="text" name="user_zipcode"><br>
-    {{ _('Email') }}: <input type="text" name="email"><br>
-    {{ _('Password') }}: <input type="password" name="password"><br>
-    <input type="submit" value= {{ _('Register to Tracer') }}>
 
 
-</form>
+<div class="contentcontainer med left" style="margin-left: 200px; margin-right: 200px">
+
+  <h2>{{ _('Sign up') }}</h2>
+    <div class="form-group">
+      <form action="/register" method="POST">
+        <div class="form-group">
+          <label>{{ _('First Name') }}</label><br>
+          <input  type="text" class="form-control" name="fname" required>
+        </div>
+
+        <div class="form-group">
+          <label>{{ _('Last Name') }}</label><br>
+          <input type="text" class="form-control" name="lname" required>
+          </div>
+
+        <div class="form-group">
+          <label>{{ _('Email') }}</label><br>
+          <input  type="text" class="form-control" type="email" name="email" placeholder="climatechange@email.com"required>
+        </div>
+
+        <div class="form-group">
+          <label>{{ _('Password') }}</label><br>
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">{{ _('Register') }}</button>
+    </form>
+
+  </div>
+</div>
 {% endblock %}

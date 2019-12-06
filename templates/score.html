@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title%}{{ _('Final Score') }}{% endblock %}
-{% block heading1 %}{{ _('Score') }}{% endblock %}
  
 
 {% block content%}
+<div class="contentcontainer med left" style="margin-left: 200px; margin-right:200px">
+  <h2>{{ _('Score') }}</h2>
 
-  <head>
-      <div id='score'>  
+  <div id='score'>  
 
-      <p>{{ _('This year you released') }} {{ score }} 
-      {{ _('tons of carbon emissions!') }} </p>
-      <p>{{ _('You are') }} {{ avg_comparison }} % 
-      {{ _('better than the average american.') }}</p>
+    <p>{{ _('This year you released') }} {{ score }} 
+      {{ _('tons of carbon emissions!') }} 
+    </p>
+    <p>{{ _('You are') }} {{ avg_comparison }} % 
+      {{ _('better than the average american.') }}
+    </p>
 
-    </div>
+  </div>
 
   <div class="score-chart">
     <canvas id="donutChart"></canvas>
     <div id="donutLegend" class="chart-legend"></div>
   </div>
 
-   </head>
-     <script type="text/javascript">
+    <script type="text/javascript">
     
     const options = {
       responsive: true
@@ -41,9 +42,7 @@
   });
     </script>
 
-        <p><a href="/recs" id="recs">{{ _('Recommendations') }}</a></p>
 
-
-
+</div>
 
 {% endblock %}

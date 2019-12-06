@@ -23,7 +23,6 @@ class User(db.Model):
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.String(20), nullable=True, index=True)
     lname = db.Column(db.String(20), nullable=True, index=True)
-    zipcode = db.Column(db.Integer, nullable=True, index=True)
     email = db.Column(db.String(70), nullable=True, unique=True, index=True)
     password_hash = db.Column(db.String(128))
     profile_created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
@@ -90,6 +89,7 @@ class Rec(db.Model):
         return f"""<rec_date: {self.rec_date}, 
                     user_id: {self.user_id},
                     comment: {self.comment}>"""
+
 
 ################################################################################
 #test samples 
@@ -202,12 +202,8 @@ if __name__ == "__main__":
     # As a convenience, if we run this module interactively, it will leave
     # you in a state of being able to work with the database directly.
     from server import app
-    init_app()
+    # init_app()
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-
-
-
 
 
 

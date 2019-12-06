@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
+{% block title %}Login{% endblock %}
 {% block content %}
 
-{% block title %}{{ _('Login') }}{% endblock %}
+<div class="contentcontainer med left" style="margin-left: 200px; margin-right: 200px">
+    <h2>{{ _('Log in') }}</h2>
+    <div class="form-group">
+        <form action="/login" method="POST">
+            <label>{{ _('Email') }}</label>
+            <input type="text" class="form-control" name="email" placeholder="climatechange@email.com"><br>
+            <label>{{ _('Password') }}</label>
+            <input type="password" name="password" class="form-control" placeholder="Password"><br>
+            <input type="submit" class="btn btn-primary" value={{ _('Login') }}>
+        </form>
+    </div>
+</div>
 
-<form action="/login" method="POST">
-    {{ _('Email') }}: <input type="text" name="email"><br>
-    {{ _('Password') }}: <input type="password" name="password"><br>
-    <input type="submit" value={{ _('Log in') }}>
-
-
-</form>
 {% endblock %}
+

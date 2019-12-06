@@ -7,9 +7,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_babel import Babel, gettext 
 
 from model import User, Metric, Rec, connect_to_db, db
-from calculations import energy, food, percentage_difference, clothing
-from metrics_helper import transportation_conditional, waste_conditional, user_metrics 
-from metrics_helper import user_login, get_score, avg_flash_msgs, get_user_lang
+from calculations import *
+from metrics_helper import *
 
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
@@ -61,14 +60,12 @@ def registration_process():
     """Registering user and saving form inputs to users datatable"""
     fname = request.form["fname"]
     lname = request.form["lname"]
-    zipcode = request.form["user_zipcode"]
     email = request.form["email"]
     password_hash = request.form["password"]
 
     #Adding new user to users data table 
     new_user = User(fname=fname, 
                     lname=lname,
-                    zipcode=zipcode, 
                     email=email,
                     password_hash=password_hash)
 
@@ -83,20 +80,28 @@ def registration_process():
 @app.route('/user_data.json')
 def user_data():
     """Metrics for user in session"""
-    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
-    user_data = user_metrics(user_metric)
+    try:
+        user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
+        user_data = user_metrics(user_metric)
+        return jsonify(user_data)
+    except:
+        print("User has not calculated carbon footprint")
 
-    return jsonify(user_data)
+
+    # return jsonify(user_data)
 
 @app.route('/user_profile')
 def user_profile():
     """render User profile information"""
-    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
-    score = get_score(user_metric)
-    avg_comparison = int(percentage_difference(score))
-    user_comments = Rec.query.filter_by(user_id=session['user_id']).all()
+    try:
+        user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
+        score = get_score(user_metric)
+        avg_comparison = int(percentage_difference(score))
+        user_comments = Rec.query.filter_by(user_id=session['user_id']).all()
 
-    return render_template("users.html", score=score, avg_comparison=avg_comparison, user_comments=user_comments)
+        return render_template("users.html", score=score, avg_comparison=avg_comparison, user_comments=user_comments)
+    except:
+        print("User has not calculated carbon footprint")
 
 @app.route('/settings', methods=["GET"])
 def settings(): 
@@ -112,13 +117,11 @@ def change_settings():
 
     fname = request.form["fname"]
     lname = request.form["lname"]
-    zipcode = request.form["zipcode"]
     email = request.form["email"]
     password_hash = request.form["password"]
 
     user.fname = fname 
     user.lname = lname 
-    user.zipcode = zipcode
     user.email = email 
     user.password_hash = password_hash
 
