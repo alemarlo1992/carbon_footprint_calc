@@ -1,0 +1,57 @@
+body {
+  counter-reset: h3counter;
+  font-family: sans-serif;
+  background-image: url("/static/laying_pb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+h1 {
+  margin-top: 1em;
+  font-size: 200%;
+}
+
+p{
+  font-size:120%;
+}
+
+label{
+    font-size:120%;
+}
+
+.epa{
+  font-size:120%;
+  font-style: italic;
+}
+
+.user_comments{
+    border-style: solid;
+    border-color: grey; 
+    border-radius: 15px;
+    padding: 30px;
+}
+.btn{
+  min-width:75px;
+}
+
+.contentcontainer{
+  background-color: rgba(235,235,235, 0.5);
+}
+
+.container-fluid{
+  margin-top: 200px;
+}
+.col-lg{
+  background-color: rgba(235,235,235, 0.3);
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(235,235,235, 0);
+  color: grey;
+  text-align: center;
+}

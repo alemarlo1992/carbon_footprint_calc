@@ -1,0 +1,386 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <alemarlo1992@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: alemarlo1992@gmail.com\n"
+"POT-Creation-Date: 2019-11-30 03:03+0000\n"
+"PO-Revision-Date: 2019-11-30 03:03+0000\n"
+"Last-Translator: ALEJANDRA LOPEZ <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: metrics_helper.py:86 templates/pollution_metrics.html:17
+msgid "Transportation"
+msgstr "Transporte"
+
+#: metrics_helper.py:87 templates/pollution_metrics.html:54
+msgid "Energy"
+msgstr "Energía"
+
+#: metrics_helper.py:88 templates/pollution_metrics.html:72
+msgid "Waste"
+msgstr "Residuos"
+
+#: metrics_helper.py:89 templates/pollution_metrics.html:89
+msgid "Food"
+msgstr "Comida"
+
+#: metrics_helper.py:90
+msgid "Clothing"
+msgstr "Ropa"
+
+#: metrics_helper.py:123
+msgid ""
+"Congratulations!\n"
+"                     You are an awesome HUMAN! Add a recommendation so \n"
+"                     other humans can follow your footprint. "
+msgstr "¡Felicidades, usted es un HUMANA/O increíble! Agrege una recomendación para que otros humanas/os sigan sus pasos"
+
+#: metrics_helper.py:127
+msgid "Find ways reduce your footprint in our recommendations section!"
+msgstr "Encuentre formas de reducir su huella en nuestra sección de recomendaciones"
+
+#: server.py:150
+msgid "Logged in"
+msgstr "Conectado"
+
+#: server.py:159
+msgid "Logged Out."
+msgstr "Desconectado"
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/config_vars.py:15
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/config_vars.py:18
+msgid "Config"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/headers.py:37
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/headers.py:40
+msgid "HTTP Headers"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/logger.py:87
+msgid "Logging"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/logger.py:95
+msgid "Log Messages"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/request_vars.py:16
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/request_vars.py:19
+msgid "Request Vars"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/route_list.py:16
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/route_list.py:19
+msgid "Route List"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/sqlalchemy.py:90
+msgid "SQLAlchemy"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/sqlalchemy.py:101
+msgid "SQLAlchemy queries"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/template.py:53
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/template.py:59
+msgid "Templates"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:36
+msgid "Time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:49
+msgid "Resource Usage"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:81
+msgid "User CPU time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:82
+msgid "System CPU time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:83
+msgid "Total CPU time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:84
+msgid "Elapsed time"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/timer.py:85
+msgid "Context switches"
+msgstr ""
+
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/versions.py:28
+#: env/lib/python3.6/site-packages/flask_debugtoolbar/panels/versions.py:37
+msgid "Versions"
+msgstr ""
+
+#: templates/homepage.html:4
+msgid "Welcome to Tracer!"
+msgstr "¡Bienvenida/o a Tracer!"
+
+#: templates/homepage.html:9 templates/homepage.html:14
+msgid "Log Out"
+msgstr "Cerrar sesión"
+
+#: templates/homepage.html:11
+msgid "User Profile"
+msgstr "Perfil de Usaria/o"
+
+#: templates/homepage.html:12
+msgid "Emission Calculator"
+msgstr "Calculadora de emisiones"
+
+#: templates/homepage.html:18 templates/login.html:4
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: templates/homepage.html:19
+msgid "Login Here"
+msgstr "Inicie sesión aquí"
+
+#: templates/homepage.html:20
+msgid "Register New User"
+msgstr "Registre usaria/o"
+
+#: templates/homepage.html:21
+msgid "Register Here"
+msgstr "Registrece aquí"
+
+#: templates/homepage.html:22
+msgid "Guest User"
+msgstr "Usaria/o Visitante"
+
+#: templates/login.html:7 templates/registration.html:11
+#: templates/settings.html:16
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: templates/login.html:8 templates/registration.html:12
+#: templates/settings.html:18
+msgid "Password"
+msgstr "Contraseña"
+
+#: templates/login.html:9
+msgid "Log in"
+msgstr "Inicie sesión"
+
+#: templates/pollution_metrics.html:3
+msgid "Pollution Metrics"
+msgstr "Métrica de contaminación"
+
+#: templates/pollution_metrics.html:4
+msgid "Carbon Emissions Calculator"
+msgstr "Calculadora de Emisiones de Carbono"
+
+#: templates/pollution_metrics.html:9
+msgid "Personal Information"
+msgstr "Información personal"
+
+#: templates/pollution_metrics.html:10
+msgid "Enter zipcode"
+msgstr "Código Postal"
+
+#: templates/pollution_metrics.html:12
+msgid "Number of individuals in your household?"
+msgstr "¿Cuantas personas viven en su hogar?"
+
+#: templates/pollution_metrics.html:18
+msgid "Please answer all questions to the best of your ability."
+msgstr "Por favor responda estas preguntas honestamente"
+
+#: templates/pollution_metrics.html:19
+msgid "Do you use public transportation on a daily basis?"
+msgstr "¿Utiliza transporte público diariamente?"
+
+#: templates/pollution_metrics.html:21 templates/pollution_metrics.html:74
+#: templates/pollution_metrics.html:78 templates/pollution_metrics.html:82
+msgid "Yes"
+msgstr "Sí"
+
+#: templates/pollution_metrics.html:25
+msgid "Both, Public & Vehicle"
+msgstr "Utilizó transporte público y mi vehículo"
+
+#: templates/pollution_metrics.html:28
+msgid "Public Transportation"
+msgstr "Transporte público"
+
+#: templates/pollution_metrics.html:29
+msgid "How many miles do you travel per week?"
+msgstr "¿Cuántas millas viajas por semana?"
+
+#: templates/pollution_metrics.html:33
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#: templates/pollution_metrics.html:34
+msgid "Number of cars driven per week"
+msgstr "¿Cuantos vehículos tiene?"
+
+#: templates/pollution_metrics.html:37
+msgid "How many miles do you travel per week for each vehicle?"
+msgstr "¿Cuántas millas viaja por semana con cada vehículo?"
+
+#: templates/pollution_metrics.html:46
+msgid "Air Travel"
+msgstr "Viaje aéreo"
+
+#: templates/pollution_metrics.html:47
+msgid "Air miles traveled this year?"
+msgstr "¿Cuantas millas viajo este año?"
+
+#: templates/pollution_metrics.html:55
+msgid "The values below reflect EPA average per person."
+msgstr "Los numeros abajo reflejan el promedio de la Agencia de Protección Ambiental por cada persona en su hogar"
+
+#: templates/pollution_metrics.html:57
+msgid "Electricity amount per month"
+msgstr "Costo de electricidad por mes"
+
+#: templates/pollution_metrics.html:60
+msgid "Natural gas amount per month"
+msgstr "Natural gas amount per month"
+
+#: templates/pollution_metrics.html:63
+msgid "Fuel oil amount per month"
+msgstr "Costo de combustible"
+
+#: templates/pollution_metrics.html:66
+msgid "Propane amount per month"
+msgstr "Costo de propano"
+
+#: templates/pollution_metrics.html:73
+msgid "Do you recycle aluminum?"
+msgstr "¿Usted recicla aluminio
+
+#: templates/pollution_metrics.html:77
+msgid "Do you recycle plastic?"
+msgstr "¿Usted recicla el plastico?"
+
+#: templates/pollution_metrics.html:81
+msgid "Do you recycle glass?"
+msgstr "¿Usted recicla vidrio?"
+
+#: templates/pollution_metrics.html:90
+msgid "Enter Servings per day for each category"
+msgstr "Ingrese las porciones que consume cada día"
+
+#: templates/pollution_metrics.html:91
+msgid "Meat, fish, and eggs"
+msgstr "Carne, pescado, y huevo"
+
+#: templates/pollution_metrics.html:94
+msgid "Grains and baked goods"
+msgstr "Granos y productos horneados"
+
+#: templates/pollution_metrics.html:97
+msgid "Dairy"
+msgstr "Lechería"
+
+#: templates/pollution_metrics.html:100
+msgid "Fruits & vegetables"
+msgstr "Frutas y vegetales"
+
+#: templates/pollution_metrics.html:105
+msgid "Clothes"
+msgstr "Ropa"
+
+#: templates/pollution_metrics.html:106
+msgid "How much do you spend on clothes per month?"
+msgstr "¿Cuanto gasta en ropa cada mes?"
+
+#: templates/pollution_metrics.html:108
+msgid "Calculate Emissions"
+msgstr "Calcule Emisiones"
+
+#: templates/recommendations.html:3 templates/recommendations.html:4
+#: templates/score.html:44 templates/users.html:57
+msgid "Recommendations"
+msgstr "Recomendaciones"
+
+#: templates/recommendations.html:11
+msgid "Leave a recommendation so others can follow your footprint!"
+msgstr "¡Deje un comentario para que otras personas sigan sus pasos!"
+
+#: templates/recommendations.html:12
+msgid "Enter your recommendation here..."
+msgstr "Ingrese sus recomendaciones aquí"
+
+#: templates/recommendations.html:14
+msgid "Submit"
+msgstr "Ingrese"
+
+#: templates/registration.html:3 templates/registration.html:5
+msgid "Registration"
+msgstr "Registración"
+
+#: templates/registration.html:8 templates/settings.html:10
+msgid "First Name"
+msgstr "Nombre"
+
+#: templates/registration.html:9 templates/settings.html:12
+msgid "Last Name"
+msgstr "Apellido"
+
+#: templates/registration.html:10 templates/settings.html:14
+msgid "Zipcode"
+msgstr "Código Postal"
+
+#: templates/registration.html:13
+msgid "Register to Tracer"
+msgstr "Registrece a Tracer"
+
+#: templates/score.html:3
+msgid "Final Score"
+msgstr "Puntuación final"
+
+#: templates/score.html:4
+msgid "Score"
+msgstr "Puntuación"
+
+#: templates/score.html:12 templates/users.html:10
+msgid "This year you released"
+msgstr "Este año usted libero"
+
+#: templates/score.html:13 templates/users.html:10
+msgid "tons of carbon emissions!"
+msgstr "toneladas de carbon"
+
+#: templates/score.html:14 templates/users.html:11
+msgid "You are"
+msgstr "Comparado a otros ciudadanas/os usted es"
+
+#: templates/score.html:15 templates/users.html:11
+msgid "better than the average american."
+msgstr "mejor que el promedio!"
+
+#: templates/settings.html:3 templates/settings.html:4
+#: templates/settings.html:20
+msgid "Update Information"
+msgstr "Actualizar Información"
+
+#: templates/users.html:3 templates/users.html:4
+msgid "User Information"
+msgstr "Informacion del usuaria/o"
+
+#: templates/users.html:58
+msgid "Settings"
+msgstr "Ajustes de usuaria/o"
+
