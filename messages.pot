@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-30 03:03+0000\n"
+"POT-Creation-Date: 2019-12-06 00:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,42 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: metrics_helper.py:86 templates/pollution_metrics.html:17
+#: metrics_helper.py:93 templates/pollution_metrics.html:30
 msgid "Transportation"
 msgstr ""
 
-#: metrics_helper.py:87 templates/pollution_metrics.html:54
+#: metrics_helper.py:94 templates/pollution_metrics.html:103
 msgid "Energy"
 msgstr ""
 
-#: metrics_helper.py:88 templates/pollution_metrics.html:72
+#: metrics_helper.py:95 templates/pollution_metrics.html:131
 msgid "Waste"
 msgstr ""
 
-#: metrics_helper.py:89 templates/pollution_metrics.html:89
+#: metrics_helper.py:96 templates/pollution_metrics.html:154
 msgid "Food"
 msgstr ""
 
-#: metrics_helper.py:90
+#: metrics_helper.py:97 templates/pollution_metrics.html:181
 msgid "Clothing"
 msgstr ""
 
-#: metrics_helper.py:123
+#: metrics_helper.py:134
 msgid ""
 "Congratulations!\n"
 "                     You are an awesome HUMAN! Add a recommendation so \n"
 "                     other humans can follow your footprint. "
 msgstr ""
 
-#: metrics_helper.py:127
+#: metrics_helper.py:138
 msgid "Find ways reduce your footprint in our recommendations section!"
 msgstr ""
 
-#: server.py:150
+#: server.py:160
 msgid "Logged in"
 msgstr ""
 
-#: server.py:159
+#: server.py:169
 msgid "Logged Out."
 msgstr ""
 
@@ -130,227 +130,225 @@ msgstr ""
 msgid "Versions"
 msgstr ""
 
-#: templates/homepage.html:4
-msgid "Welcome to Tracer!"
+#: templates/base.html:36 templates/recommendations.html:3
+#: templates/recommendations.html:9 templates/users.html:49
+msgid "Recommendations"
 msgstr ""
 
-#: templates/homepage.html:9 templates/homepage.html:14
-msgid "Log Out"
+#: templates/base.html:39
+msgid "Profile"
 msgstr ""
 
-#: templates/homepage.html:11
-msgid "User Profile"
+#: templates/base.html:42
+msgid "Settings"
 msgstr ""
 
-#: templates/homepage.html:12
-msgid "Emission Calculator"
+#: templates/base.html:45
+msgid "Logout"
 msgstr ""
 
-#: templates/homepage.html:18 templates/login.html:4
-msgid "Login"
-msgstr ""
-
-#: templates/homepage.html:19
-msgid "Login Here"
-msgstr ""
-
-#: templates/homepage.html:20
-msgid "Register New User"
-msgstr ""
-
-#: templates/homepage.html:21
-msgid "Register Here"
-msgstr ""
-
-#: templates/homepage.html:22
+#: templates/base.html:64
 msgid "Guest User"
 msgstr ""
 
-#: templates/login.html:7 templates/registration.html:11
-#: templates/settings.html:16
+#: templates/homepage.html:10
+msgid "Climate Change"
+msgstr ""
+
+#: templates/homepage.html:12
+msgid ""
+"A change in global or regional climate patterns, in particular a change "
+"apparent from the mid to late 20th century onwards and attributed largely"
+" to the increased levels of atmospheric carbon dioxide produced by the "
+"use of fossil fuels."
+msgstr ""
+
+#: templates/homepage.html:22
+msgid "Emissions Calculator"
+msgstr ""
+
+#: templates/homepage.html:30
+msgid "Login Here"
+msgstr ""
+
+#: templates/homepage.html:34 templates/registration.html:8
+msgid "Sign up"
+msgstr ""
+
+#: templates/login.html:6
+msgid "Log in"
+msgstr ""
+
+#: templates/login.html:9 templates/registration.html:22
+#: templates/settings.html:21
 msgid "Email"
 msgstr ""
 
-#: templates/login.html:8 templates/registration.html:12
-#: templates/settings.html:18
+#: templates/login.html:11 templates/registration.html:27
+#: templates/settings.html:25
 msgid "Password"
 msgstr ""
 
-#: templates/login.html:9
-msgid "Log in"
+#: templates/login.html:13
+msgid "Login"
 msgstr ""
 
 #: templates/pollution_metrics.html:3
 msgid "Pollution Metrics"
 msgstr ""
 
-#: templates/pollution_metrics.html:4
-msgid "Carbon Emissions Calculator"
+#: templates/pollution_metrics.html:10
+msgid "Carbon Footprint Calculator"
 msgstr ""
 
-#: templates/pollution_metrics.html:9
+#: templates/pollution_metrics.html:11
 msgid "Personal Information"
 msgstr ""
 
-#: templates/pollution_metrics.html:10
+#: templates/pollution_metrics.html:14
 msgid "Enter zipcode"
 msgstr ""
 
-#: templates/pollution_metrics.html:12
+#: templates/pollution_metrics.html:20
 msgid "Number of individuals in your household?"
 msgstr ""
 
-#: templates/pollution_metrics.html:18
-msgid "Please answer all questions to the best of your ability."
-msgstr ""
-
-#: templates/pollution_metrics.html:19
+#: templates/pollution_metrics.html:32
 msgid "Do you use public transportation on a daily basis?"
 msgstr ""
 
-#: templates/pollution_metrics.html:21 templates/pollution_metrics.html:74
-#: templates/pollution_metrics.html:78 templates/pollution_metrics.html:82
+#: templates/pollution_metrics.html:37 templates/pollution_metrics.html:136
+#: templates/pollution_metrics.html:141 templates/pollution_metrics.html:147
 msgid "Yes"
 msgstr ""
 
-#: templates/pollution_metrics.html:25
+#: templates/pollution_metrics.html:50
 msgid "Both, Public & Vehicle"
 msgstr ""
 
-#: templates/pollution_metrics.html:28
+#: templates/pollution_metrics.html:54
 msgid "Public Transportation"
 msgstr ""
 
-#: templates/pollution_metrics.html:29
-msgid "How many miles do you travel per week?"
-msgstr ""
-
-#: templates/pollution_metrics.html:33
-msgid "Vehicle"
-msgstr ""
-
-#: templates/pollution_metrics.html:34
-msgid "Number of cars driven per week"
-msgstr ""
-
-#: templates/pollution_metrics.html:37
-msgid "How many miles do you travel per week for each vehicle?"
-msgstr ""
-
-#: templates/pollution_metrics.html:46
-msgid "Air Travel"
-msgstr ""
-
-#: templates/pollution_metrics.html:47
-msgid "Air miles traveled this year?"
-msgstr ""
-
-#: templates/pollution_metrics.html:55
-msgid "The values below reflect EPA average per person."
-msgstr ""
-
-#: templates/pollution_metrics.html:57
-msgid "Electricity amount per month"
-msgstr ""
-
-#: templates/pollution_metrics.html:60
-msgid "Natural gas amount per month"
+#: templates/pollution_metrics.html:59
+msgid "miles/week"
 msgstr ""
 
 #: templates/pollution_metrics.html:63
-msgid "Fuel oil amount per month"
+msgid "Vehicle"
 msgstr ""
 
 #: templates/pollution_metrics.html:66
-msgid "Propane amount per month"
+msgid "Number of cars driven per week"
 msgstr ""
 
-#: templates/pollution_metrics.html:73
-msgid "Do you recycle aluminum?"
+#: templates/pollution_metrics.html:71
+msgid "How many miles do you travel per week for each vehicle?"
 msgstr ""
 
-#: templates/pollution_metrics.html:77
-msgid "Do you recycle plastic?"
-msgstr ""
-
-#: templates/pollution_metrics.html:81
-msgid "Do you recycle glass?"
-msgstr ""
-
-#: templates/pollution_metrics.html:90
-msgid "Enter Servings per day for each category"
-msgstr ""
-
-#: templates/pollution_metrics.html:91
-msgid "Meat, fish, and eggs"
-msgstr ""
-
-#: templates/pollution_metrics.html:94
-msgid "Grains and baked goods"
+#: templates/pollution_metrics.html:96
+msgid "Air Travel"
 msgstr ""
 
 #: templates/pollution_metrics.html:97
-msgid "Dairy"
+msgid "Air miles traveled this year?"
 msgstr ""
 
-#: templates/pollution_metrics.html:100
-msgid "Fruits & vegetables"
+#: templates/pollution_metrics.html:104
+msgid "How much do you pay per month?"
 msgstr ""
 
 #: templates/pollution_metrics.html:105
-msgid "Clothes"
-msgstr ""
-
-#: templates/pollution_metrics.html:106
-msgid "How much do you spend on clothes per month?"
+msgid "The values below reflect EPA average per person."
 msgstr ""
 
 #: templates/pollution_metrics.html:108
+msgid "Electricity"
+msgstr ""
+
+#: templates/pollution_metrics.html:114
+msgid "Natural gas"
+msgstr ""
+
+#: templates/pollution_metrics.html:119
+msgid "Fuel"
+msgstr ""
+
+#: templates/pollution_metrics.html:124
+msgid "Propane"
+msgstr ""
+
+#: templates/pollution_metrics.html:134
+msgid "Do you recycle aluminum?"
+msgstr ""
+
+#: templates/pollution_metrics.html:140
+msgid "Do you recycle plastic?"
+msgstr ""
+
+#: templates/pollution_metrics.html:145
+msgid "Do you recycle glass?"
+msgstr ""
+
+#: templates/pollution_metrics.html:155
+msgid "Enter Servings per day for each category"
+msgstr ""
+
+#: templates/pollution_metrics.html:158
+msgid "Meat, fish, and eggs"
+msgstr ""
+
+#: templates/pollution_metrics.html:163
+msgid "Grains and baked goods"
+msgstr ""
+
+#: templates/pollution_metrics.html:168
+msgid "Dairy"
+msgstr ""
+
+#: templates/pollution_metrics.html:173
+msgid "Fruits & vegetables"
+msgstr ""
+
+#: templates/pollution_metrics.html:184
+msgid "How much do you spend on clothes per month?"
+msgstr ""
+
+#: templates/pollution_metrics.html:192
 msgid "Calculate Emissions"
 msgstr ""
 
-#: templates/recommendations.html:3 templates/recommendations.html:4
-#: templates/score.html:44 templates/users.html:57
-msgid "Recommendations"
+#: templates/recommendations.html:13
+msgid ""
+"Leave a recommendation so others can follow \n"
+"            your footprint!"
 msgstr ""
 
-#: templates/recommendations.html:11
-msgid "Leave a recommendation so others can follow your footprint!"
+#: templates/recommendations.html:16
+msgid "Recommendation here..."
 msgstr ""
 
-#: templates/recommendations.html:12
-msgid "Enter your recommendation here..."
-msgstr ""
-
-#: templates/recommendations.html:14
+#: templates/recommendations.html:19
 msgid "Submit"
 msgstr ""
 
-#: templates/registration.html:3 templates/registration.html:5
-msgid "Registration"
-msgstr ""
-
-#: templates/registration.html:8 templates/settings.html:10
+#: templates/registration.html:12 templates/settings.html:13
 msgid "First Name"
 msgstr ""
 
-#: templates/registration.html:9 templates/settings.html:12
+#: templates/registration.html:17 templates/settings.html:17
 msgid "Last Name"
 msgstr ""
 
-#: templates/registration.html:10 templates/settings.html:14
-msgid "Zipcode"
-msgstr ""
-
-#: templates/registration.html:13
-msgid "Register to Tracer"
+#: templates/registration.html:31
+msgid "Register"
 msgstr ""
 
 #: templates/score.html:3
 msgid "Final Score"
 msgstr ""
 
-#: templates/score.html:4
+#: templates/score.html:8
 msgid "Score"
 msgstr ""
 
@@ -358,28 +356,27 @@ msgstr ""
 msgid "This year you released"
 msgstr ""
 
-#: templates/score.html:13 templates/users.html:10
+#: templates/score.html:13 templates/users.html:11
 msgid "tons of carbon emissions!"
 msgstr ""
 
-#: templates/score.html:14 templates/users.html:11
+#: templates/score.html:15 templates/users.html:13
 msgid "You are"
 msgstr ""
 
-#: templates/score.html:15 templates/users.html:11
+#: templates/score.html:16 templates/users.html:14
 msgid "better than the average american."
 msgstr ""
 
-#: templates/settings.html:3 templates/settings.html:4
-#: templates/settings.html:20
+#: templates/settings.html:3 templates/settings.html:9
 msgid "Update Information"
 msgstr ""
 
-#: templates/users.html:3 templates/users.html:4
-msgid "User Information"
+#: templates/settings.html:28
+msgid "Update"
 msgstr ""
 
-#: templates/users.html:58
-msgid "Settings"
+#: templates/users.html:3 templates/users.html:8
+msgid "User Information"
 msgstr ""
 

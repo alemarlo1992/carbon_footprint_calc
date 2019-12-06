@@ -28,45 +28,53 @@ app.jinja_env.undefined = StrictUndefined
 @babel.localeselector
 def get_locale():
     """Return desired language, either english or spanish"""
+    
     if session.get('lang') == 'es':
         return 'es'
     else: 
         return 'en'
+
+
 #------------------------------------------------------------------------------#
 @app.route('/')
 def index():
     """Homepage."""
-    return render_template("homepage.html")
+    
+    return render_template('homepage.html')
+
 
 #------------------------------------------------------------------------------#
 @app.route('/lang')
 def get_lang(): 
     """Render template lang.html"""
-    return render_template("lang.html")
+    return render_template('lang.html')
 
 @app.route('/lang', methods=["POST"])
 def change_lang(): 
     """Get user preferred languague, either spanish or english"""
+
     lang = request.form["lang"]
     languague = get_user_lang(lang)
     return redirect('/')
+
 
 #------------------------------------------------------------------------------#
 @app.route('/register', methods=["GET"])
 def registration_form(): 
     """Render template registration.html"""
 
-    return render_template("registration.html")
+    return render_template('registration.html')
 
 @app.route('/register', methods=["POST"])
 def registration_process(): 
     """Registering user and saving form inputs to users datatable"""
+
     fname = request.form["fname"]
     lname = request.form["lname"]
     email = request.form["email"]
     password_hash = request.form["password"]
 
-    #Adding new user to users data table 
+    # Adding new user to users data table 
     new_user = User(fname=fname, 
                     lname=lname,
                     email=email,
@@ -77,25 +85,25 @@ def registration_process():
     session['user_id'] = new_user.user_id
 
 
-    return redirect("/pollution_metrics")
+    return redirect('/pollution_metrics')
+
 
 #------------------------------------------------------------------------------#
 @app.route('/user_data.json')
 def user_data():
     """Metrics for user in session"""
+
     try:
         user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
         user_data = user_metrics(user_metric)
         return jsonify(user_data)
     except:
-        print("User has not calculated carbon footprint")
-
-
-    # return jsonify(user_data)
+        return jsonify("User has not calculated carbon footprint")
 
 @app.route('/user_profile')
 def user_profile():
     """render User profile information"""
+
     try:
         user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
         score = get_score(user_metric)
@@ -107,41 +115,50 @@ def user_profile():
                                 avg_comparison=avg_comparison, 
                                 user_comments=user_comments)
     except:
-        print("User has not calculated carbon footprint")
+        flash("User has not calculated carbon footprint")
+        return redirect("/")
+        
 
 #------------------------------------------------------------------------------#
 @app.route('/settings', methods=["GET"])
 def settings(): 
     """Render template settings.html"""
-    user = User.query.filter_by(user_id=session['user_id']).first()
 
-    return render_template("settings.html", user=user)
+    user = User.query.get(session['user_id'])
+
+    return render_template('settings.html', user=user)
+
 
 @app.route('/settings', methods=["POST"])
 def change_settings(): 
     """Change user settings and commit session to database"""
-    user = User.query.filter_by(user_id=session['user_id']).first()
+    try:
+        user = User.query.filter_by(user_id=session['user_id']).first()
 
-    fname = request.form["fname"]
-    lname = request.form["lname"]
-    email = request.form["email"]
-    password_hash = request.form["password"]
+        fname = request.form["fname"]
+        lname = request.form["lname"]
+        email = request.form["email"]
+        password_hash = request.form["password"]
 
-    user.fname = fname 
-    user.lname = lname 
-    user.email = email 
-    user.password_hash = password_hash
+        user.fname = fname 
+        user.lname = lname 
+        user.email = email 
+        user.password_hash = password_hash
 
-    db.session.commit()
+        db.session.commit()
 
-    return redirect("/user_profile")
+        return redirect('/user_profile')
+    except:
+
+        return redirect('/')
+
 
 #------------------------------------------------------------------------------#
 @app.route('/login', methods=["GET"])
 def login(): 
     """Render template login.html"""
 
-    return render_template("login.html")
+    return render_template('login.html')
 
 
 @app.route('/login', methods=["POST"])
@@ -157,22 +174,24 @@ def login_process():
 
     session["user_id"] = user.user_id
 
-    flash(gettext("Logged in"))
-    return redirect("/")
+    flash(gettext('Logged in'))
+    return redirect('/')
 
 #------------------------------------------------------------------------------#
 @app.route("/logout")
 def logout():
     """Log out user from session"""
+
     #delete info from session
     del session["user_id"]
-    flash(gettext("Logged Out."))
-    return redirect("/")
+    flash(gettext('Logged Out.'))
+    return redirect('/')
 
 #------------------------------------------------------------------------------#
 @app.route("/guest_user")
 def guest(): 
     """Guest user is being added to user data table and to the session"""
+
     fname = "Guest"
     user = User(fname=fname)
 
@@ -187,12 +206,14 @@ def guest():
 @app.route('/pollution_metrics', methods=["GET"])
 def transportation():
     """Render transporation form"""
-    return render_template("pollution_metrics.html")
+
+    return render_template('pollution_metrics.html')
 
 
 @app.route('/pollution_metrics', methods=["POST"])
 def get_pollution_metric():
     """Get user form inputs from transportation & calculate their trans_metrics emissions"""
+
     transportation = request.form["transportation"]
     pt_miles_per_week = request.form["pt_miles_per_week"]
     air_miles_yr = request.form["air_miles_yr"]
@@ -222,7 +243,7 @@ def get_pollution_metric():
 
     clothes = request.form["clothes"]
 
-    """Transportation metric"""
+    # Transportation metric
     trans_metric = transportation_conditional(transportation,
                                                 num_people,
                                                 pt_miles_per_week,
@@ -234,23 +255,23 @@ def get_pollution_metric():
                                                 mi_wk_5, 
                                                 vehicle_num)
 
-    """Energy metric"""
+    # Energy metric
     energy_metric = energy(user_zipcode, 
                             natural_gas_amount,
                             electricity_amount, 
                             fuel_oil_amount, 
                             propane_amount)
 
-    """Waste metric"""
+    # Waste metric
     waste_metric = waste_conditional(num_people, 
                                         metal_waste, 
                                         plastic_waste, 
                                         glass_waste)
   
-    """Food metric"""
+    # Food metric
     food_metric = food(meat_serv, grain_serv, dairy_serv, fruit_serv)
 
-    """Clothing metric"""
+    # Clothing metric
     clothing_metric = clothing(clothes)
 
     #Assigning corresponding pollution metrics for each user in the polution_metrics table 
@@ -260,10 +281,10 @@ def get_pollution_metric():
                         waste_metric=waste_metric,
                         food_metric=food_metric,
                         clothing_metric=clothing_metric)
-    #Adding corresponding metrics to db table 
-    db.session.add(pollution_metric)
-    #commiting those changes 
-    db.session.commit()
+     
+    db.session.add(pollution_metric) # Adding corresponding metrics to db table 
+
+    db.session.commit() # Commiting those changes 
 
     return redirect('/score')
 
@@ -271,11 +292,15 @@ def get_pollution_metric():
 @app.route('/data.json')
 def datajs():
     """Metrics rendered to user_profile"""
-    user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
     
-    user_data = user_metrics(user_metric)
+    try: 
+        user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
+        
+        user_data = user_metrics(user_metric)
 
-    return jsonify(user_data)
+        return jsonify(user_data)
+    except:
+        return jsonify("User has not calculated carbon footprint")
 
 #------------------------------------------------------------------------------#
 @app.route('/score', methods=["GET"])
@@ -294,7 +319,7 @@ def score():
 @app.route('/recs', methods=["GET"])
 def comments(): 
     """Render recommendations.html"""
-
+    
     comments = Rec.query.order_by(Rec.rec_date.desc()).all()
     print(comments)
 
