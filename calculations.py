@@ -3,7 +3,7 @@
 from RawData.zipcodeData import get_zipcodes
 import statistics
 
-
+#------------------------------------------------------------------------------#
 """Transportation metric calculation"""
 def vehicle_emissions(vehicle_num, 
                         mi_wk_1, 
@@ -31,6 +31,7 @@ def vehicle_emissions(vehicle_num,
 
     return vehicle_emission_ton
 
+#------------------------------------------------------------------------------#
 
 def public_trans(num_people, pt_miles_per_week):
     """Calculated the emissions released due to public trans in tons/yr"""
@@ -39,9 +40,11 @@ def public_trans(num_people, pt_miles_per_week):
 
     return public_trans_emission_ton
 
+#------------------------------------------------------------------------------#
 
 def air_travel(air_miles_yr):
     """Calculates the emissions released due to air travel per year in tons/yr"""
+    # y = mx + b => parameters calculated from coolclimate.org 
     if air_miles_yr == None:
         travel_emission_ton = 0
     else:
@@ -49,10 +52,12 @@ def air_travel(air_miles_yr):
 
     return travel_emission_ton
 
+#------------------------------------------------------------------------------#
 
 """Energy Metrics calculation"""
 def energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount, propane_amount): 
     """Calculates the emissions released due to energy per year in tons/yr"""
+    # y = mx + b => parameters calculated from coolclimate.org 
     zipcode_dict = get_zipcodes() #make function from zipcodeData.py a variable to access values 
     region_co2 = zipcode_dict[user_zipcode] #gets emissions by zipcode
     emission_factor = int(region_co2) / 1000 #conversion factor per household
@@ -75,6 +80,8 @@ def energy(user_zipcode, natural_gas_amount, electricity_amount, fuel_oil_amount
 
     return total_energy_emission_ton
 
+#------------------------------------------------------------------------------#
+
 """Waste Metrics calculation"""
 def waste(num_people): 
     """Calculates the emissions released due to waste per year in tons/yr"""
@@ -82,9 +89,12 @@ def waste(num_people):
 
     return waste_emission_lb
 
+#------------------------------------------------------------------------------#
+
 """Food Metrics calculation"""
 def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
     """Calculates the emissions released due to food consumption per year in tons/yr"""
+    # y = mx + b => parameters calculated from coolclimate.org 
     meat_emission = round((2.131 * int(meat_serv) + 0.005), 2)
     grain_emission = round((0.40 * int(grain_serv) - 0.01), 2)
     dairy_emission = round((0.88 * int(dairy_serv)), 2)
@@ -94,16 +104,21 @@ def food(meat_serv, grain_serv, dairy_serv, fruit_serv):
 
     return round(total_food_emission_ton, 2)
 
-def clothing(clothes):
+#------------------------------------------------------------------------------#
 
+"""Clothing Metrics calculation"""
+def clothing(clothes):
+    """Calculates the emissions released due to clothing purchase per year in tons/yr"""
+    # y = mx + b => parameters calculated from coolclimate.org 
     clothes_emission = round((0.0016 * int(clothes) + 0.0003), 2)
 
     return clothes_emission
+#------------------------------------------------------------------------------#
 
-
+"""Percentage Difference Calculation"""
 def percentage_difference(score):
     """Calculated the percentage difference between average American & user"""
-    avg_american = 44.09
+    avg_american = 44.09 #Calculated using average parameters. 
     if score < avg_american: 
         percentage_diff = abs(avg_american - score) / ((avg_american + score) / 2) * 100
     else: 

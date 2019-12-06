@@ -11,6 +11,7 @@ from calculations import *
 from metrics_helper import *
 
 app = Flask(__name__)
+#Sets the locale to english 
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 babel = Babel(app)
 
@@ -22,20 +23,22 @@ app.secret_key = "ABCDEFG"
 # error.
 app.jinja_env.undefined = StrictUndefined
 
+#------------------------------------------------------------------------------#
 """Babel localselector will be used to return the users preferred languague"""
 @babel.localeselector
 def get_locale():
-    """Return desired language"""
+    """Return desired language, either english or spanish"""
     if session.get('lang') == 'es':
         return 'es'
     else: 
         return 'en'
-
+#------------------------------------------------------------------------------#
 @app.route('/')
 def index():
     """Homepage."""
     return render_template("homepage.html")
 
+#------------------------------------------------------------------------------#
 @app.route('/lang')
 def get_lang(): 
     """Render template lang.html"""
@@ -48,7 +51,7 @@ def change_lang():
     languague = get_user_lang(lang)
     return redirect('/')
 
-
+#------------------------------------------------------------------------------#
 @app.route('/register', methods=["GET"])
 def registration_form(): 
     """Render template registration.html"""
@@ -76,7 +79,7 @@ def registration_process():
 
     return redirect("/pollution_metrics")
 
-
+#------------------------------------------------------------------------------#
 @app.route('/user_data.json')
 def user_data():
     """Metrics for user in session"""
@@ -99,10 +102,14 @@ def user_profile():
         avg_comparison = int(percentage_difference(score))
         user_comments = Rec.query.filter_by(user_id=session['user_id']).all()
 
-        return render_template("users.html", score=score, avg_comparison=avg_comparison, user_comments=user_comments)
+        return render_template("users.html", 
+                                score=score, 
+                                avg_comparison=avg_comparison, 
+                                user_comments=user_comments)
     except:
         print("User has not calculated carbon footprint")
 
+#------------------------------------------------------------------------------#
 @app.route('/settings', methods=["GET"])
 def settings(): 
     """Render template settings.html"""
@@ -129,7 +136,7 @@ def change_settings():
 
     return redirect("/user_profile")
 
-
+#------------------------------------------------------------------------------#
 @app.route('/login', methods=["GET"])
 def login(): 
     """Render template login.html"""
@@ -153,7 +160,7 @@ def login_process():
     flash(gettext("Logged in"))
     return redirect("/")
 
-
+#------------------------------------------------------------------------------#
 @app.route("/logout")
 def logout():
     """Log out user from session"""
@@ -162,7 +169,7 @@ def logout():
     flash(gettext("Logged Out."))
     return redirect("/")
 
-
+#------------------------------------------------------------------------------#
 @app.route("/guest_user")
 def guest(): 
     """Guest user is being added to user data table and to the session"""
@@ -176,7 +183,7 @@ def guest():
     session['user_id'] = user.user_id
     return redirect('/pollution_metrics')
 
-
+#------------------------------------------------------------------------------#
 @app.route('/pollution_metrics', methods=["GET"])
 def transportation():
     """Render transporation form"""
@@ -260,7 +267,7 @@ def get_pollution_metric():
 
     return redirect('/score')
 
-
+#------------------------------------------------------------------------------#
 @app.route('/data.json')
 def datajs():
     """Metrics rendered to user_profile"""
@@ -270,7 +277,7 @@ def datajs():
 
     return jsonify(user_data)
 
-
+#------------------------------------------------------------------------------#
 @app.route('/score', methods=["GET"])
 def score():   
     """Render template score.html"""
@@ -283,6 +290,7 @@ def score():
                                 score=score, 
                                 avg_comparison=avg_comparison)
 
+#------------------------------------------------------------------------------#
 @app.route('/recs', methods=["GET"])
 def comments(): 
     """Render recommendations.html"""
@@ -304,7 +312,7 @@ def get_comments():
 
     return redirect('/recs')
 
-
+#------------------------------------------------------------------------------#
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
