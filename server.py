@@ -179,7 +179,7 @@ def login_process():
         flash(gettext('Logged in'))
         return redirect('/')
     else:
-        gettext(flash('You have entered the wrong password!'))
+        flash(gettext('You have entered the wrong password!'))
         return redirect('/login')
 
 #------------------------------------------------------------------------------#

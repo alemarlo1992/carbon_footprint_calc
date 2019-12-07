@@ -105,24 +105,43 @@
         <p class="epa">{{ _('The values below reflect EPA average per person.') }}</p>
             <div class="form-row">
                 <div class="col-3">
-                    <label>{{ _('Electricity') }}</label><br>
-                    <input type='number' class="form-control" 
-                    name='electricity_amount' id='electricity_amount' value="23" 
-                    required>
+
+                    <label>{{ _('Electricity') }} </label><br>
+
+                   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="number" name='electricity_amount' class="form-control" value="23" aria-label="Amount (to the nearest dollar)" required>
+                    </div>
+
                 </div>
                 <div class="col-3">
-                    <label>{{ _('Natural gas') }}</label><br>
-                    <input type='number' class="form-control" name='natural_gas_amount' 
-                    id='natural_gas_amount' value="44" required>
+                    <label>{{ _('Natural gas') }} </label><br>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="number" name='natural_gas_amount'  class="form-control" value="44" aria-label="Amount (to the nearest dollar)" required>
+                    </div>
                 </div>
                 <div class="col-3">
-                    <label>{{ _('Fuel') }}</label><br>
-                    <input type='number' class="form-control" name='fuel_oil_amount' 
-                    id='fuel_oil_amount' value="72" required> 
+                    <label>{{ _('Fuel') }} </label><br>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="number" name='fuel_oil_amount'   class="form-control" value="72" aria-label="Amount (to the nearest dollar)" required>
+                    </div>
                 </div>
                 <div class="col-3">
-                    <label>{{ _('Propane') }}</label><br>
-                    <input type='number' class="form-control" name='propane_amount' id='propane_amount' value="37" required> 
+                    <label>{{ _('Propane') }} </label><br>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="number" name='propane_amount'   class="form-control" value="37" aria-label="Amount (to the nearest dollar)" required>
+                    </div> 
                 </div>
             </div>
         </div><br>    
