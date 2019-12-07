@@ -80,6 +80,8 @@ def registration_process():
                     email=email,
                     password_hash=password_hash)
 
+    new_user.set_password(password_hash)
+
     db.session.add(new_user)
     db.session.commit()
     session['user_id'] = new_user.user_id
@@ -170,12 +172,15 @@ def login_process():
 
     user = User.query.filter_by(email=email).first()
 
-    user_verification = user_login(user, password_hash)
+    if user and user.check_password(password_hash):
 
-    session["user_id"] = user.user_id
+        session["user_id"] = user.user_id
 
-    flash(gettext('Logged in'))
-    return redirect('/')
+        flash(gettext('Logged in'))
+        return redirect('/')
+    else:
+        gettext(flash('You have entered the wrong password!'))
+        return redirect('/login')
 
 #------------------------------------------------------------------------------#
 @app.route("/logout")
@@ -292,7 +297,7 @@ def get_pollution_metric():
 @app.route('/data.json')
 def datajs():
     """Metrics rendered to user_profile"""
-    
+
     try: 
         user_metric = Metric.query.filter_by(user_id=session['user_id']).all()
         
@@ -319,7 +324,7 @@ def score():
 @app.route('/recs', methods=["GET"])
 def comments(): 
     """Render recommendations.html"""
-    
+
     comments = Rec.query.order_by(Rec.rec_date.desc()).all()
     print(comments)
 

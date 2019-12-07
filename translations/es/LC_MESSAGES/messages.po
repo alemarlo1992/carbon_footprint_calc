@@ -43,11 +43,15 @@ msgid ""
 "Congratulations!\n"
 "                     You are an awesome HUMAN! Add a recommendation so \n"
 "                     other humans can follow your footprint. "
-msgstr "Felicidades! Usted es un HUMANO increíble! Agrega una recomendación para que otros humanos sigan sus pasos"
+msgstr ""
+"Felicidades! Usted es un HUMANO increíble! Agrega una recomendación para "
+"que otros humanos sigan sus pasos"
 
 #: metrics_helper.py:138
 msgid "Find ways reduce your footprint in our recommendations section!"
-msgstr "Encuentre formas de reducir su huella en nuestra sección de recomendaciones "
+msgstr ""
+"Encuentre formas de reducir su huella en nuestra sección de "
+"recomendaciones "
 
 #: server.py:160
 msgid "Logged in"
@@ -162,7 +166,11 @@ msgid ""
 "apparent from the mid to late 20th century onwards and attributed largely"
 " to the increased levels of atmospheric carbon dioxide produced by the "
 "use of fossil fuels."
-msgstr "Un cambio en los patrones climáticos globales o regionales, en particular un cambio aparente desde mediados hasta finales del siglo XX en adelante y atribuido en gran medida a los mayores niveles de dióxido de carbono atmosférico producidos por el uso de combustibles fósiles."
+msgstr ""
+"Un cambio en los patrones climáticos globales o regionales, en particular"
+" un cambio aparente desde mediados siglo XX en adelante. Atribuido en "
+"gran medida a altos niveles de dióxido de carbono producidos por el uso "
+"de combustibles fósiles."
 
 #: templates/homepage.html:22
 msgid "Emissions Calculator"
@@ -261,7 +269,9 @@ msgstr "¿Cuanto paga por mes?"
 
 #: templates/pollution_metrics.html:105
 msgid "The values below reflect EPA average per person."
-msgstr "Los numeros abajo reflejan el promedio de la Agencia de Protección Ambiental por cada persona en su hogar"
+msgstr ""
+"Los numeros abajo reflejan el costo promedio de servicio por cada persona"
+" en su hogar."
 
 #: templates/pollution_metrics.html:108
 msgid "Electricity"
@@ -355,19 +365,19 @@ msgstr "Puntuación"
 
 #: templates/score.html:12 templates/users.html:10
 msgid "This year you released"
-msgstr "Este año usted libero"
+msgstr "Este año usted emitio"
 
 #: templates/score.html:13 templates/users.html:11
 msgid "tons of carbon emissions!"
-msgstr "toneladas de carbon"
+msgstr "toneladas de dióxido de carbono"
 
 #: templates/score.html:15 templates/users.html:13
 msgid "You are"
-msgstr "Comparado a otros ciudadanas/os usted es"
+msgstr "Usted es"
 
 #: templates/score.html:16 templates/users.html:14
 msgid "better than the average american."
-msgstr "mejor que el promedio!"
+msgstr "mejor que el cuidadano promedio!"
 
 #: templates/settings.html:3 templates/settings.html:9
 msgid "Update Information"
