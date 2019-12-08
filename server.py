@@ -117,7 +117,7 @@ def user_profile():
                                 avg_comparison=avg_comparison, 
                                 user_comments=user_comments)
     except:
-        flash("User has not calculated carbon footprint")
+        flash(gettext("User has not calculated carbon footprint"))
         return redirect("/")
         
 
@@ -179,7 +179,7 @@ def login_process():
         flash(gettext('Logged in'))
         return redirect('/')
     else:
-        flash(gettext('You have entered the wrong password!'))
+        flash(gettext('You have entered the wrong email or password.'))
         return redirect('/login')
 
 #------------------------------------------------------------------------------#
@@ -250,15 +250,15 @@ def get_pollution_metric():
 
     # Transportation metric
     trans_metric = transportation_conditional(transportation,
-                                                num_people,
-                                                pt_miles_per_week,
-                                                air_miles_yr,
-                                                mi_wk_1, 
-                                                mi_wk_2, 
-                                                mi_wk_3,
-                                                mi_wk_4,
-                                                mi_wk_5, 
-                                                vehicle_num)
+                                                    num_people,
+                                                    pt_miles_per_week,
+                                                    air_miles_yr,
+                                                    mi_wk_1, 
+                                                    mi_wk_2, 
+                                                    mi_wk_3,
+                                                    mi_wk_4,
+                                                    mi_wk_5, 
+                                                    vehicle_num)
 
     # Energy metric
     energy_metric = energy(user_zipcode, 

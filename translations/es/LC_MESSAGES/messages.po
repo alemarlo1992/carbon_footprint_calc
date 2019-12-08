@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-06 00:57+0000\n"
-"PO-Revision-Date: 2019-12-06 01:01+0000\n"
+"POT-Creation-Date: 2019-12-08 22:47+0000\n"
+"PO-Revision-Date: 2019-12-08 22:47+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
 "Language-Team: es <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgstr "Transporte"
 msgid "Energy"
 msgstr "Energía"
 
-#: metrics_helper.py:95 templates/pollution_metrics.html:131
+#: metrics_helper.py:95 templates/pollution_metrics.html:150
 msgid "Waste"
 msgstr "Residuos"
 
-#: metrics_helper.py:96 templates/pollution_metrics.html:154
+#: metrics_helper.py:96 templates/pollution_metrics.html:173
 msgid "Food"
 msgstr "Comida"
 
-#: metrics_helper.py:97 templates/pollution_metrics.html:181
+#: metrics_helper.py:97 templates/pollution_metrics.html:200
 msgid "Clothing"
 msgstr "Ropa"
 
@@ -43,21 +43,25 @@ msgid ""
 "Congratulations!\n"
 "                     You are an awesome HUMAN! Add a recommendation so \n"
 "                     other humans can follow your footprint. "
-msgstr ""
-"Felicidades! Usted es un HUMANO increíble! Agrega una recomendación para "
-"que otros humanos sigan sus pasos"
+msgstr "Felicidades! Usted es un HUMANO increíble! Agrega una recomendación para que otros sigan tus pasos"
 
 #: metrics_helper.py:138
 msgid "Find ways reduce your footprint in our recommendations section!"
-msgstr ""
-"Encuentre formas de reducir su huella en nuestra sección de "
-"recomendaciones "
+msgstr "Encuentre formas de reducir su huella en nuestra sección de recomendaciones."
 
-#: server.py:160
+#: server.py:120
+msgid "User has not calculated carbon footprint"
+msgstr "No a calculado sus emisiones"
+
+#: server.py:179
 msgid "Logged in"
 msgstr "Conectada/o"
 
-#: server.py:169
+#: server.py:182
+msgid "You have entered the wrong email or password."
+msgstr "Ingresó el correo electrónico o la contraseña incorrectamente."
+
+#: server.py:192
 msgid "Logged Out."
 msgstr "Desconectada/o"
 
@@ -138,7 +142,7 @@ msgstr ""
 #: templates/base.html:36 templates/recommendations.html:3
 #: templates/recommendations.html:9 templates/users.html:49
 msgid "Recommendations"
-msgstr ""
+msgstr "Recomendaciones"
 
 #: templates/base.html:39
 msgid "Profile"
@@ -160,27 +164,24 @@ msgstr "Usaria/o Visitante"
 msgid "Climate Change"
 msgstr "Cambio Climático"
 
-#: templates/homepage.html:12
+#: templates/homepage.html:13
 msgid ""
 "A change in global or regional climate patterns, in particular a change "
 "apparent from the mid to late 20th century onwards and attributed largely"
 " to the increased levels of atmospheric carbon dioxide produced by the "
 "use of fossil fuels."
-msgstr ""
-"Un cambio en los patrones climáticos globales o regionales, en particular"
-" un cambio aparente desde mediados siglo XX en adelante. Atribuido en "
-"gran medida a altos niveles de dióxido de carbono producidos por el uso "
-"de combustibles fósiles."
+msgstr "Un cambio en los patrones climáticos globales o regionales, en particular un cambio aparente desde mediados siglo XX en adelante. Atribuido en gran medida a altos niveles de dióxido de carbono producidos por el uso de combustibles fósiles."
 
-#: templates/homepage.html:22
+
+#: templates/homepage.html:23
 msgid "Emissions Calculator"
 msgstr "Calculadora de Emisiones"
 
-#: templates/homepage.html:30
+#: templates/homepage.html:31
 msgid "Login Here"
 msgstr "Inicie sesión aquí"
 
-#: templates/homepage.html:34 templates/registration.html:8
+#: templates/homepage.html:35 templates/registration.html:8
 msgid "Sign up"
 msgstr "Regístrate"
 
@@ -200,7 +201,7 @@ msgstr "Contraseña"
 
 #: templates/login.html:13
 msgid "Login"
-msgstr "Inicie sesión"
+msgstr "Inicie sesión""
 
 #: templates/pollution_metrics.html:3
 msgid "Pollution Metrics"
@@ -226,8 +227,8 @@ msgstr "¿Cuantas personas viven en su hogar?"
 msgid "Do you use public transportation on a daily basis?"
 msgstr "¿Utiliza transporte público diariamente?"
 
-#: templates/pollution_metrics.html:37 templates/pollution_metrics.html:136
-#: templates/pollution_metrics.html:141 templates/pollution_metrics.html:147
+#: templates/pollution_metrics.html:37 templates/pollution_metrics.html:155
+#: templates/pollution_metrics.html:160 templates/pollution_metrics.html:166
 msgid "Yes"
 msgstr "Sí"
 
@@ -269,63 +270,62 @@ msgstr "¿Cuanto paga por mes?"
 
 #: templates/pollution_metrics.html:105
 msgid "The values below reflect EPA average per person."
-msgstr ""
-"Los numeros abajo reflejan el costo promedio de servicio por cada persona"
-" en su hogar."
+msgstr "Los numeros abajo reflejan el costo promedio de servicio por cada persona en su hogar."
 
-#: templates/pollution_metrics.html:108
+
+#: templates/pollution_metrics.html:109
 msgid "Electricity"
 msgstr "Electricidad"
 
-#: templates/pollution_metrics.html:114
+#: templates/pollution_metrics.html:120
 msgid "Natural gas"
 msgstr "Gas Natural"
 
-#: templates/pollution_metrics.html:119
+#: templates/pollution_metrics.html:129
 msgid "Fuel"
 msgstr "Combustible"
 
-#: templates/pollution_metrics.html:124
+#: templates/pollution_metrics.html:138
 msgid "Propane"
 msgstr "Propano"
 
-#: templates/pollution_metrics.html:134
+#: templates/pollution_metrics.html:153
 msgid "Do you recycle aluminum?"
 msgstr "¿Usted recicla aluminio?"
 
-#: templates/pollution_metrics.html:140
+#: templates/pollution_metrics.html:159
 msgid "Do you recycle plastic?"
 msgstr "¿Usted recicla el plastico?"
 
-#: templates/pollution_metrics.html:145
+#: templates/pollution_metrics.html:164
 msgid "Do you recycle glass?"
 msgstr "¿Usted recicla vidrio?"
 
-#: templates/pollution_metrics.html:155
+#: templates/pollution_metrics.html:174
 msgid "Enter Servings per day for each category"
 msgstr "Ingrese las porciones que consume cada día"
 
-#: templates/pollution_metrics.html:158
+#: templates/pollution_metrics.html:177
 msgid "Meat, fish, and eggs"
 msgstr "Carne, pescado, y huevo"
 
-#: templates/pollution_metrics.html:163
+#: templates/pollution_metrics.html:182
 msgid "Grains and baked goods"
 msgstr "Granos y productos horneados"
 
-#: templates/pollution_metrics.html:168
+#: templates/pollution_metrics.html:187
 msgid "Dairy"
 msgstr "Lechería"
 
-#: templates/pollution_metrics.html:173
+#: templates/pollution_metrics.html:192
 msgid "Fruits & vegetables"
 msgstr "Frutas y vegetales"
 
-#: templates/pollution_metrics.html:184
+#: templates/pollution_metrics.html:203
 msgid "How much do you spend on clothes per month?"
 msgstr "¿Cuanto gasta en ropa cada mes?"
 
-#: templates/pollution_metrics.html:192
+#: templates/pollution_metrics.html:211
 msgid "Calculate Emissions"
 msgstr "Calcule Emisiones"
 
