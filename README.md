@@ -30,7 +30,7 @@ Tracer was created by Alejandra Lopez. Learn more about the developer on [Linked
 
 ## Features
 
-![Registration/Login](/CarbonFootPrintCalculator/static/README/register_login.gif)
+![Registration/Login](static/README/register_login.gif)
 
 ![Pollution metrics, Score, and Recommendations](/CarbonFootPrintCalculator/static/README/form_score_recs.gif)
 
