@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0025)http://0.0.0.0:5000/goals -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>jinja2.exceptions.UndefinedError: 'goals' is undefined // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals" type="text/css">
+    <!-- We need to make sure this has a favicon so that the debugger does
+         not by accident trigger a request to /favicon.ico which might
+         change the application state. -->
+    <link rel="shortcut icon" href="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)">
+    <script src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(1)"></script>
+    <script src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(2)"></script>
+    <script type="text/javascript">
+      var TRACEBACK = 140458210020768,
+          CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "pSbES1vW1qY632zj20lD";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>jinja2.exceptions.UndefinedError</h1>
+<div class="detail">
+  <p class="errormsg">jinja2.exceptions.UndefinedError: 'goals' is undefined</p>
+</div>
+<h2 class="traceback" style="cursor: pointer;">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  
+  <ul><li><div class="frame" id="frame-140458210020208">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">2309</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def __call__(self, environ, start_response):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app` which can be</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>wrapped to applying middleware."""</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def __repr__(self):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return '&lt;%s %r&gt;' % (</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>self.__class__.__name__,</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>self.name,</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017800">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">2295</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>try:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>except:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>raise</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017856">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">1741</em>,
+      in <code class="function">handle_exception</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span># if we want to repropagate the exception, we can attempt to</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span># raise it with the whole traceback in case we can do that</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span># (the function was actually called from the except part)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span># otherwise, we just raise the error again</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>if exc_value is e:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>reraise(exc_type, exc_value, tb)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>else:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>raise e</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>self.log_exception((exc_type, exc_value, tb))</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if handler is None:</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017576">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py"</cite>,
+      line <em class="line">35</em>,
+      in <code class="function">reraise</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>from io import StringIO</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def reraise(tp, value, tb=None):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if value.__traceback__ is not tb:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>raise value.with_traceback(tb)</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>raise value</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>implements_to_string = _identity</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>else:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>text_type = unicode</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017520">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">2292</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>error = None</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>try:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>try:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>except:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210020488">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">1815</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def finalize_request(self, rv, from_error_handler=False):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""Given the return value from a view function this finalizes</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>the request by converting it into a response and invoking the</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210020376">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">1718</em>,
+      in <code class="function">handle_user_exception</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return self.handle_http_exception(e)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>handler = self._find_error_handler(e)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if handler is None:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>reraise(exc_type, exc_value, tb)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return handler(e)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def handle_exception(self, e):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""Default exception handling that kicks in when an exception</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>occurs that is not caught.  In debug mode the exception will</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017352">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py"</cite>,
+      line <em class="line">35</em>,
+      in <code class="function">reraise</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>from io import StringIO</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def reraise(tp, value, tb=None):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if value.__traceback__ is not tb:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>raise value.with_traceback(tb)</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>raise value</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>implements_to_string = _identity</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>else:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>text_type = unicode</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017688">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py"</cite>,
+      line <em class="line">1813</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>self.try_trigger_before_first_request_functions()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>try:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def finalize_request(self, rv, from_error_handler=False):</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458210017744">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask_debugtoolbar/__init__.py"</cite>,
+      line <em class="line">125</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>view_func = app.view_functions[rule.endpoint]</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>view_func = self.process_view(app, view_func, req.view_args)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return view_func(**req.view_args)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def _show_toolbar(self):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""Return a boolean to indicate if we need to show the toolbar."""</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if request.blueprint == 'debugtoolbar':</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return False</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209980256">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/server.py"</cite>,
+      line <em class="line">100</em>,
+      in <code class="function">comments</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def comments():</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>"""Render recommendations.html"""</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>comments = Goal.query.order_by(Goal.goal_date.desc()).all()</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>return render_template("goals.html", comments=comments)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>@app.route('/goals', methods=["POST"])</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def get_comments():</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>"""Save user comments in recs datatable"""</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979920">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py"</cite>,
+      line <em class="line">135</em>,
+      in <code class="function">render_template</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                    </span>context of the template.</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>"""</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>ctx = _app_ctx_stack.top</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>ctx.app.update_template_context(context)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">                   </span>context, ctx.app)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def render_template_string(source, **context):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>"""Renders a template from the given template source string</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>with the given context. Template variables will be autoescaped.</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209980088">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py"</cite>,
+      line <em class="line">117</em>,
+      in <code class="function">_render</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def _render(template, context, app):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>"""Renders the template and fires the signal"""</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>before_render_template.send(app, template=template, context=context)</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>rv = template.render(context)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>template_rendered.send(app, template=template, context=context)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>return rv</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def render_template(template_name_or_list, **context):</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209978968">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/asyncsupport.py"</cite>,
+      line <em class="line">76</em>,
+      in <code class="function">render</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>def wrap_render_func(original_render):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def render(self, *args, **kwargs):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if not self.environment.is_async:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return original_render(self, *args, **kwargs)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>loop = asyncio.get_event_loop()</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return loop.run_until_complete(self.render_async(*args, **kwargs))</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>return update_wrapper(render, original_render)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979808">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py"</cite>,
+      line <em class="line">1008</em>,
+      in <code class="function">render</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>vars = dict(*args, **kwargs)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>try:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return concat(self.root_render_func(self.new_context(vars)))</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>except Exception:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>exc_info = sys.exc_info()</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>return self.environment.handle_exception(exc_info, True)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def render_async(self, *args, **kwargs):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""This works similar to :meth:`render` but returns a coroutine</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>that when awaited returns the entire rendered template string.  This</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>requires the async feature to be enabled.</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979976">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py"</cite>,
+      line <em class="line">780</em>,
+      in <code class="function">handle_exception</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if rendered and self.exception_formatter is not None:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>return self.exception_formatter(traceback)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if self.exception_handler is not None:</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>self.exception_handler(traceback)</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>exc_type, exc_value, tb = traceback.standard_exc_info</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>reraise(exc_type, exc_value, tb)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def join_path(self, template, parent):</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>"""Join a template with the parent.  By default all the lookups are</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>relative to the loader root so this method returns the `template`</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>parameter unchanged, but if the paths should be relative to the</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979024">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/_compat.py"</cite>,
+      line <em class="line">37</em>,
+      in <code class="function">reraise</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>from io import BytesIO, StringIO</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>NativeStringIO = StringIO</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>def reraise(tp, value, tb=None):</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>if value.__traceback__ is not tb:</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>raise value.with_traceback(tb)</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>raise value</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>ifilter = filter</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>imap = map</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>izip = zip</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979304">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/templates/goals.html"</cite>,
+      line <em class="line">1</em>,
+      in <code class="function">top-level template code</code></h4>
+  <div class="source"><pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>{% extends 'base.html' %}</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>{% block title%}Goals{% endblock %}</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979136">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/templates/base.html"</cite>,
+      line <em class="line">74</em>,
+      in <code class="function">top-level template code</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>{% endfor %}</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>&lt;/div&gt;</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">  </span>{% endif %}</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>{% endwith %}</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>{% block content%} {% endblock %}</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span> </pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">  </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">  </span>&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;</pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140458209979696">
+  <h4>File <cite class="filename">"/home/vagrant/src/challenges/take-home/templates/goals.html"</cite>,
+      line <em class="line">25</em>,
+      in <code class="function">block "content"</code></h4>
+  <div class="source"><pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>&lt;/form&gt;</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>&lt;/div&gt;&lt;br&gt;</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>&lt;!--</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws"></span>&lt;div id="edit" contenteditable="true"&gt;</pre>
+<pre class="line before"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">    </span>&lt;div class="card"&gt;</pre>
+<pre class="line current"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>{% for goal in goals %}</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>&lt;div class="card-header"&gt;</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>{{ goal.user.name }}</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>&lt;/div&gt;</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">        </span>&lt;div class="card-body"&gt;</pre>
+<pre class="line after"><img src="./jinja2.exceptions.UndefinedError_ &#39;goals&#39; is undefined __ Werkzeug Debugger_files/goals(3)" title="Open an interactive python shell in this frame"><span class="ws">            </span>&lt;h5 class="card-title"&gt;{{ goal.goal_date }}&lt;/h5&gt;</pre></div>
+</div>
+</li></ul>
+  <blockquote>jinja2.exceptions.UndefinedError: 'goals' is undefined</blockquote>
+</div>
+
+<div class="plain" style="display: none;">
+  <form action="http://0.0.0.0:5000/?__debugger__=yes&amp;cmd=paste" method="post">
+    <p>
+      <input type="hidden" name="language" value="pytb">
+      This is the Copy/Paste friendly version of the traceback.  <span class="pastemessage">You can also paste this traceback into
+      a <a href="https://gist.github.com/">gist</a>:
+      <input type="submit" value="create paste"></span>
+    </p>
+    <pre>Traceback (most recent call last):
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask_debugtoolbar/__init__.py", line 125, in dispatch_request
+    return view_func(**req.view_args)
+  File "/home/vagrant/src/challenges/take-home/server.py", line 100, in comments
+    return render_template("goals.html", comments=comments)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/vagrant/src/challenges/take-home/templates/goals.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/vagrant/src/challenges/take-home/templates/base.html", line 74, in top-level template code
+    {% block content%} {% endblock %}
+  File "/home/vagrant/src/challenges/take-home/templates/goals.html", line 25, in block "content"
+    {% for goal in goals %}
+jinja2.exceptions.UndefinedError: 'goals' is undefined</pre>
+  </form>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class=""><p>To switch between the interactive traceback and the plaintext one, you can click on the "Traceback" headline.  From the text traceback you can also create a paste of it. For code execution mouse-over the frame you want to debug and click on the console icon on the right side.</p><p>You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:</p><ul><li><code>dump()</code> shows all variables in the frame</li><li><code>dump(obj)</code> dumps all that's known about the object</li></ul></span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        </p><form>
+          <p>PIN:
+            <input type="text" name="pin" size="14">
+            <input type="submit" name="btn" value="Confirm Pin">
+        </p></form>
+      </div>
+    </div>
+  
+
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask_debugtoolbar/__init__.py", line 125, in dispatch_request
+    return view_func(**req.view_args)
+  File "/home/vagrant/src/challenges/take-home/server.py", line 100, in comments
+    return render_template("goals.html", comments=comments)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/vagrant/src/challenges/take-home/env/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/vagrant/src/challenges/take-home/templates/goals.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/vagrant/src/challenges/take-home/templates/base.html", line 74, in top-level template code
+    {% block content%} {% endblock %}
+  File "/home/vagrant/src/challenges/take-home/templates/goals.html", line 25, in block "content"
+    {% for goal in goals %}
+jinja2.exceptions.UndefinedError: 'goals' is undefined
+
+-->
+</body></html>
