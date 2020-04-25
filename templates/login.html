@@ -17,3 +17,28 @@
 
 {% endblock %}
 
+
+
+<form action="/login" method="POST">
+            <label>{{ _('Email') }}</label>
+
+            <input type="text" class="form-control" name="email" 
+            placeholder={{ _('email@email.com') }}>
+
+            <label>{{ _('Password') }}</label>
+            <input type="password" name="password" class="form-control" 
+            placeholder={{ _('Password') }}><br>
+            <input type="submit" class="btn btn-primary" value={{ _('Login') }}>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
