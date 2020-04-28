@@ -23,8 +23,9 @@ class User(db.Model):
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.String(20), nullable=True, index=True)
     lname = db.Column(db.String(20), nullable=True, index=True)
-    phone = db.Column(db.String(15))
+    phone = db.Column(db.String(15), nullable=True)
     email = db.Column(db.String(70), nullable=True, unique=True, index=True)
+    last_rec_sent = db.Column(db.Integer, nullable=True)
     password_hash = db.Column(db.String(128))
     profile_created_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
  #below our user model, we will create our hashing functions
@@ -101,8 +102,7 @@ class Weekly_Rec(db.Model):
 
     def __repr__(self):
         """Helpfull representation when printed"""
-        return f"""<id: {self.id}, 
-                    user_id: {self.message},
+        return f"""{self.message}
                 """
 
 

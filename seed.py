@@ -15,7 +15,7 @@ def load_weekly_recs(weekly_recs_filename):
     # Read u.activity file and insert data
     for row in open(weekly_recs_filename):
         row = row.rstrip()
-        print(row)
+        
         id, message = row.split("|")
 
         weekly_rec = Weekly_Rec(id=id,

@@ -2,7 +2,7 @@
 
 ## Summary 
 
-**Tracer** is a resourceful and efficient web app that allows users to calculate the amount of carbon emissions they released throughout the year. This will be based on the amount of travel (both daily commute and air), food consumption, waste, clothes, and electricity. Tracer has a user recommendation section, that allows users to comment what they do to decrease their carbon footprint. All these features can be viewed in english or in spanish. 
+**Tracer** is a resourceful and efficient web app that allows users to calculate the amount of carbon emissions they released throughout the year. This will be based on the amount of travel (both daily commute and air travel), food consumption, waste, clothes, and electricity. Tracer has a user recommendation section, that allows users to comment what they do to decrease their carbon footprint. All these features can be viewed in english or in spanish. 
 
 ## About the Developer
 Tracer was created by Alejandra Lopez. Learn more about the developer on [Linked In](https://www.linkedin.com/in/alejandra-lopez-0a0a205b/).

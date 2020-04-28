@@ -9,6 +9,12 @@ from flask_babel import Babel, gettext
 from model import User, Metric, Rec, connect_to_db, db
 from calculations import *
 from metrics_helper import *
+import os
+from twilio_sms import *
+import schedule 
+import time 
+import logging
+import threading
 
 app = Flask(__name__)
 #Sets the locale to english 
@@ -72,13 +78,28 @@ def registration_process():
     fname = request.form["fname"]
     lname = request.form["lname"]
     email = request.form["email"]
+    phone = request.form["phone"]
     password_hash = request.form["password"]
 
     # Adding new user to users data table 
-    new_user = User(fname=fname, 
-                    lname=lname,
-                    email=email,
-                    password_hash=password_hash)
+
+    if phone:
+        phone = phone_verification(phone)
+        new_user = User(fname=fname, 
+                        lname=lname,
+                        phone=phone,
+                        email=email,
+                        last_rec_sent=1,
+                        password_hash=password_hash)
+
+        db.session.commit()
+
+    else: 
+        new_user = User(fname=fname, 
+                        lname=lname,
+                        email=email,
+                        password_hash=password_hash)
+        db.session.commit()
 
     new_user.set_password(password_hash)
 
@@ -86,8 +107,8 @@ def registration_process():
     db.session.commit()
     session['user_id'] = new_user.user_id
 
+    return redirect('/pollution_metrics') 
 
-    return redirect('/pollution_metrics')
 
 
 #------------------------------------------------------------------------------#
@@ -140,12 +161,16 @@ def change_settings():
         fname = request.form["fname"]
         lname = request.form["lname"]
         email = request.form["email"]
+        phone = request.form["phone"]
         password_hash = request.form["password"]
 
         user.fname = fname 
         user.lname = lname 
         user.email = email 
         user.password_hash = password_hash
+
+        if phone:
+            user.phone = phone 
 
         db.session.commit()
 
@@ -281,11 +306,11 @@ def get_pollution_metric():
 
     #Assigning corresponding pollution metrics for each user in the polution_metrics table 
     pollution_metric = Metric(user_id=session['user_id'], 
-                        trans_metric=trans_metric,  
-                        energy_metric= energy_metric,
-                        waste_metric=waste_metric,
-                        food_metric=food_metric,
-                        clothing_metric=clothing_metric)
+                              trans_metric=trans_metric,  
+                              energy_metric= energy_metric,
+                              waste_metric=waste_metric,
+                              food_metric=food_metric,
+                              clothing_metric=clothing_metric)
      
     db.session.add(pollution_metric) # Adding corresponding metrics to db table 
 
@@ -326,7 +351,6 @@ def comments():
     """Render recommendations.html"""
 
     comments = Rec.query.order_by(Rec.rec_date.desc()).all()
-    print(comments)
 
     return render_template("recommendations.html", comments=comments)
 
@@ -355,4 +379,8 @@ if __name__ == "__main__":
     # Use the DebugToolbar
     DebugToolbarExtension(app)
 
+    scheduler_thread = threading.Thread(target=runscheduler)
+    scheduler_thread.start()
     app.run(port=5000, host='0.0.0.0')
+
+    # runscheduler()
