@@ -85,6 +85,7 @@ def registration_process():
 
     if phone:
         phone = phone_verification(phone)
+        
         new_user = User(fname=fname, 
                         lname=lname,
                         phone=phone,
@@ -370,7 +371,7 @@ def get_comments():
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
-    app.debug = True
+    app.debug = False
     # make sure templates, etc. are not cached in debug mode
     app.jinja_env.auto_reload = app.debug
 
@@ -379,8 +380,7 @@ if __name__ == "__main__":
     # Use the DebugToolbar
     DebugToolbarExtension(app)
 
-    scheduler_thread = threading.Thread(target=runscheduler)
+    scheduler_thread = threading.Thread(target=run_scheduler)
     scheduler_thread.start()
     app.run(port=5000, host='0.0.0.0')
 
-    # runscheduler()

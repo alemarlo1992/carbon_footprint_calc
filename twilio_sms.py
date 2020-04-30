@@ -8,11 +8,11 @@ import time
 import logging
 
 
-
-
-
 def phone_verification(phone):
     """Uses Twilio API to look up cell number, returns number as string"""
+    ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']
+    AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
+    TWILIO_NUMBER = '+12055286381'
   
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
     try:
@@ -31,16 +31,19 @@ def phone_verification(phone):
 
 
 def send_text_recs():
-    """Given message and phone number, send users a text using Twilio API."""
+    """Given message and phone number, send users a rec using Twilio API."""
 
     logging.info("Printing inside the recs function")
-
+    account_sid = os.environ['TWILIO_ACCOUNT_SID']
+    auth_token = os.environ['TWILIO_AUTH_TOKEN']
+    TWILIO_NUMBER = '+12055286381'
 
     users = User.query.all()
 
     for user in users: 
         if user.phone: 
-            msg = Weekly_Rec.query.filter_by(id=user.last_rec_sent).first()
+            rec = Weekly_Rec.query.filter_by(id=user.last_rec_sent).first()
+            msg = 'Hello ' + str(user.fname) +', here is your weekly recommendation: ' + str(rec)
             
             client = Client(account_sid, auth_token)
             message = client.messages \
@@ -51,15 +54,17 @@ def send_text_recs():
                      )
             print(message.sid)
 
-            user.last_rec_sent = int(user.last_rec_sent) + 1 
+            user.last_rec_sent = user.last_rec_sent + 1 
+
+            db.session.commit()
 
 
-def runscheduler():
-    schedule.every().monday.at('9:00').do(send_text_recs)
+def run_scheduler():
+    """Scheduling sed_text_recs to be sent every Monday at 9am"""
+    schedule.every().monday.do(send_text_recs)
     logging.error("Send Text Recs Scheduled")
     while True:
         schedule.run_pending()
         time.sleep(1)
-
 
 
