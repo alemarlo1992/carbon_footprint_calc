@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title%}{{ _('Recommendations') }}{% endblock %}
+
+ 
+
+{% block content%}
+<div class="contentcontainer med left" style="margin-left: 200px; margin-right:200px">
+    <h2>{{ _('Recommendations') }}</h2>
+    <div class="comment_box" id="comment_box">
+
+        <form action='/recs' method="POST">
+            <label> {{ _('Leave a recommendation so others can follow 
+            your footprint!') }}
+            </label><br>
+            <textarea class="form-control" name="comment" rows="6" class="form-control" placeholder="{{ _('Recommendation here...') }}">
+            </textarea><br>
+            <button type="submit" class="btn btn-primary" >
+            {{ _('Submit') }}
+            </button>
+        </form>
+    </div><br>
+
+    <div class="card">
+        {% for rec in comments %}
+        <div class="card-header">
+            {{ rec.user.fname }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ rec.rec_date }}</h5>
+            <p class="card-text">{{ rec.comment }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div> 
+{% endblock %}
