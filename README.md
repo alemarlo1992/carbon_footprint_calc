@@ -7,6 +7,9 @@
 ## About the Developer
 Tracer was created by Alejandra Lopez. Learn more about the developer on [Linked In](https://www.linkedin.com/in/alejandra-lopez-0a0a205b/).
 
+## DEMO Video 
+[DEMO](https://drive.google.com/file/d/1z0TKpaBW8NxHGx1xa6zF3t-fe1LtIPQS/view?usp=sharing)
+
 ## Technologies
 
 ### Tech Stack:
